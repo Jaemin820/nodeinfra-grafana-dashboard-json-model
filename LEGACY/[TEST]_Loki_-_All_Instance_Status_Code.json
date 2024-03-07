@@ -1,1 +1,318 @@
-{"meta":{"type":"db","canSave":true,"canEdit":true,"canAdmin":true,"canStar":true,"canDelete":true,"slug":"test-loki-all-instance-status-code","url":"/d/a07056f7-b363-4748-a162-15b800d5aab0/test-loki-all-instance-status-code","expires":"0001-01-01T00:00:00Z","created":"2023-06-22T05:15:05Z","updated":"2023-12-19T06:41:27Z","updatedBy":"Anonymous","createdBy":"Anonymous","version":36,"hasAcl":false,"isFolder":false,"folderId":143,"folderUid":"NuyAuQ-Vk","folderTitle":"LEGACY","folderUrl":"/dashboards/f/NuyAuQ-Vk/legacy","provisioned":false,"provisionedExternalId":"","annotationsPermissions":{"dashboard":{"canAdd":true,"canEdit":true,"canDelete":true},"organization":{"canAdd":true,"canEdit":true,"canDelete":true}}},"dashboard":{"annotations":{"list":[{"builtIn":1,"datasource":{"type":"grafana","uid":"-- Grafana --"},"enable":true,"hide":true,"iconColor":"rgba(0, 211, 255, 1)","name":"Annotations \u0026 Alerts","type":"dashboard"}]},"editable":true,"fiscalYearStartMonth":0,"graphTooltip":0,"id":204,"links":[],"liveNow":false,"panels":[{"collapsed":false,"gridPos":{"h":1,"w":24,"x":0,"y":0},"id":36,"panels":[],"repeat":"network","repeatDirection":"h","title":"[$chain] [$network] Requests per status code","type":"row"},{"datasource":{"type":"loki","uid":"f782d7ea-f993-4f3a-917d-3e5539188746"},"description":"","fieldConfig":{"defaults":{"color":{"mode":"thresholds"},"mappings":[],"noValue":"-","thresholds":{"mode":"percentage","steps":[{"color":"rgba(110, 157, 228, 0.76)","value":null},{"color":"rgba(73, 124, 202, 1)","value":20}]},"unit":"short"},"overrides":[]},"gridPos":{"h":8,"w":6,"x":0,"y":1},"id":2,"options":{"colorMode":"background","graphMode":"area","justifyMode":"auto","orientation":"auto","reduceOptions":{"calcs":["sum"],"fields":"","values":false},"text":{},"textMode":"auto","wideLayout":true},"pluginVersion":"10.3.0-64167","repeat":"region","repeatDirection":"h","targets":[{"datasource":{"uid":"f782d7ea-f993-4f3a-917d-3e5539188746"},"editorMode":"code","expr":"sum by (chain, network, region, status) (count_over_time({chain=~\"APT\", network=~\"$network\", region=~\"$region\", filename=~\"/home/ubuntu/kong/log/access-proxy.log\"} | json |  __error__=\"\" [$__interval]))","instant":false,"legendFormat":"{{chain}} {{network}} HTTP Status: {{status}}","queryType":"range","range":true,"refId":"A"}],"title":"[$chain] Mainnet Requests per status code [$region]","transformations":[],"type":"stat"}],"refresh":"","schemaVersion":39,"tags":["legacy"],"templating":{"list":[{"current":{"selected":false,"text":["APT","SUI"],"value":["APT","SUI"]},"datasource":{"uid":"f782d7ea-f993-4f3a-917d-3e5539188746"},"definition":"label_values(chain)","hide":0,"includeAll":false,"multi":false,"name":"chain","options":[],"query":"label_values(chain)","refresh":1,"regex":"","skipUrlSync":false,"sort":1,"tagValuesQuery":"","tagsQuery":"","type":"query","useTags":false},{"current":{"selected":false,"text":["All"],"value":["$__all"]},"datasource":{"uid":"f782d7ea-f993-4f3a-917d-3e5539188746"},"definition":"label_values({chain=~\"$chain\"}, network)","error":{},"hide":0,"includeAll":true,"multi":true,"name":"network","options":[],"query":"label_values({chain=~\"$chain\"}, network)","refresh":1,"regex":"","skipUrlSync":false,"sort":1,"tagValuesQuery":"","tagsQuery":"","type":"query","useTags":false},{"current":{"selected":false,"text":["All"],"value":["$__all"]},"datasource":{"uid":"f782d7ea-f993-4f3a-917d-3e5539188746"},"definition":"label_values({chain=~\"$chain\", network=~\"$network\"}, region)","error":{},"hide":0,"includeAll":true,"multi":true,"name":"region","options":[],"query":"label_values({chain=~\"$chain\", network=~\"$network\"}, region)","refresh":1,"regex":"","skipUrlSync":false,"sort":1,"tagValuesQuery":"","tagsQuery":"","type":"query","useTags":false},{"current":{"selected":false,"text":["ext-prod-APT-mainnet-indexer"],"value":["ext-prod-APT-mainnet-indexer"]},"datasource":{"uid":"f782d7ea-f993-4f3a-917d-3e5539188746"},"definition":"label_values({chain=~\"$chain\", network=~\"$network\", region=~\"$region\"}, job)","error":{},"hide":0,"includeAll":true,"multi":true,"name":"job","options":[],"query":"label_values({chain=~\"$chain\", network=~\"$network\", region=~\"$region\"}, job)","refresh":1,"regex":"","skipUrlSync":false,"sort":1,"tagValuesQuery":"","tagsQuery":"","type":"query","useTags":false},{"current":{"selected":false,"text":"/home/ubuntu/kong/log/access-proxy.log","value":"/home/ubuntu/kong/log/access-proxy.log"},"datasource":{"uid":"f782d7ea-f993-4f3a-917d-3e5539188746"},"definition":"label_values(filename)","hide":0,"includeAll":false,"multi":false,"name":"filename","options":[],"query":"label_values(filename)","refresh":1,"regex":"","skipUrlSync":false,"sort":1,"tagValuesQuery":"","tagsQuery":"","type":"query","useTags":false}]},"time":{"from":"now-6h","to":"now"},"timepicker":{},"timezone":"","title":"[TEST] Loki - All Instance Status Code","uid":"a07056f7-b363-4748-a162-15b800d5aab0","version":36,"weekStart":""}}
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "test-loki-all-instance-status-code",
+        "url": "/d/a07056f7-b363-4748-a162-15b800d5aab0/test-loki-all-instance-status-code",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2023-06-22T05:15:05Z",
+        "updated": "2023-12-19T06:41:27Z",
+        "updatedBy": "Anonymous",
+        "createdBy": "Anonymous",
+        "version": 36,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 143,
+        "folderUid": "NuyAuQ-Vk",
+        "folderTitle": "LEGACY",
+        "folderUrl": "/dashboards/f/NuyAuQ-Vk/legacy",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": 204,
+        "links": [],
+        "liveNow": false,
+        "panels": [
+            {
+                "collapsed": false,
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 36,
+                "panels": [],
+                "repeat": "network",
+                "repeatDirection": "h",
+                "title": "[$chain] [$network] Requests per status code",
+                "type": "row"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "mappings": [],
+                        "noValue": "-",
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "rgba(110, 157, 228, 0.76)",
+                                    "value": null
+                                },
+                                {
+                                    "color": "rgba(73, 124, 202, 1)",
+                                    "value": 20
+                                }
+                            ]
+                        },
+                        "unit": "short"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 6,
+                    "x": 0,
+                    "y": 1
+                },
+                "id": 2,
+                "options": {
+                    "colorMode": "background",
+                    "graphMode": "area",
+                    "justifyMode": "auto",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "sum"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "text": {},
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "10.3.0-64167",
+                "repeat": "region",
+                "repeatDirection": "h",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "sum by (chain, network, region, status) (count_over_time({chain=~\"APT\", network=~\"$network\", region=~\"$region\", filename=~\"/home/ubuntu/kong/log/access-proxy.log\"} | json |  __error__=\"\" [$__interval]))",
+                        "instant": false,
+                        "legendFormat": "{{chain}} {{network}} HTTP Status: {{status}}",
+                        "queryType": "range",
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "[$chain] Mainnet Requests per status code [$region]",
+                "transformations": [],
+                "type": "stat"
+            }
+        ],
+        "refresh": "",
+        "schemaVersion": 39,
+        "tags": [
+            "legacy"
+        ],
+        "templating": {
+            "list": [
+                {
+                    "current": {
+                        "selected": false,
+                        "text": [
+                            "APT",
+                            "SUI"
+                        ],
+                        "value": [
+                            "APT",
+                            "SUI"
+                        ]
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values(chain)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "chain",
+                    "options": [],
+                    "query": "label_values(chain)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": [
+                            "All"
+                        ],
+                        "value": [
+                            "$__all"
+                        ]
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values({chain=~\"$chain\"}, network)",
+                    "error": {},
+                    "hide": 0,
+                    "includeAll": true,
+                    "multi": true,
+                    "name": "network",
+                    "options": [],
+                    "query": "label_values({chain=~\"$chain\"}, network)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": [
+                            "All"
+                        ],
+                        "value": [
+                            "$__all"
+                        ]
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values({chain=~\"$chain\", network=~\"$network\"}, region)",
+                    "error": {},
+                    "hide": 0,
+                    "includeAll": true,
+                    "multi": true,
+                    "name": "region",
+                    "options": [],
+                    "query": "label_values({chain=~\"$chain\", network=~\"$network\"}, region)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": [
+                            "ext-prod-APT-mainnet-indexer"
+                        ],
+                        "value": [
+                            "ext-prod-APT-mainnet-indexer"
+                        ]
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values({chain=~\"$chain\", network=~\"$network\", region=~\"$region\"}, job)",
+                    "error": {},
+                    "hide": 0,
+                    "includeAll": true,
+                    "multi": true,
+                    "name": "job",
+                    "options": [],
+                    "query": "label_values({chain=~\"$chain\", network=~\"$network\", region=~\"$region\"}, job)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "/home/ubuntu/kong/log/access-proxy.log",
+                        "value": "/home/ubuntu/kong/log/access-proxy.log"
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values(filename)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "filename",
+                    "options": [],
+                    "query": "label_values(filename)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                }
+            ]
+        },
+        "time": {
+            "from": "now-6h",
+            "to": "now"
+        },
+        "timepicker": {},
+        "timezone": "",
+        "title": "[TEST] Loki - All Instance Status Code",
+        "uid": "a07056f7-b363-4748-a162-15b800d5aab0",
+        "version": 36,
+        "weekStart": ""
+    }
+}

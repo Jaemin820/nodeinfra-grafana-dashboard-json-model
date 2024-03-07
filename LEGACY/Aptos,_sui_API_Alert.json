@@ -1,1 +1,174 @@
-{"meta":{"type":"db","canSave":true,"canEdit":true,"canAdmin":true,"canStar":true,"canDelete":true,"slug":"aptos-sui-api-alert","url":"/d/d6dbfea9-31df-43c2-994c-77653a8f5563/aptos-sui-api-alert","expires":"0001-01-01T00:00:00Z","created":"2023-07-25T04:54:03Z","updated":"2023-12-22T07:59:16Z","updatedBy":"tg9","createdBy":"Anonymous","version":3,"hasAcl":false,"isFolder":false,"folderId":143,"folderUid":"NuyAuQ-Vk","folderTitle":"LEGACY","folderUrl":"/dashboards/f/NuyAuQ-Vk/legacy","provisioned":false,"provisionedExternalId":"","annotationsPermissions":{"dashboard":{"canAdd":true,"canEdit":true,"canDelete":true},"organization":{"canAdd":true,"canEdit":true,"canDelete":true}}},"dashboard":{"annotations":{"list":[{"builtIn":1,"datasource":{"type":"grafana","uid":"-- Grafana --"},"enable":true,"hide":true,"iconColor":"rgba(0, 211, 255, 1)","name":"Annotations \u0026 Alerts","type":"dashboard"}]},"editable":true,"fiscalYearStartMonth":0,"graphTooltip":0,"id":232,"links":[],"liveNow":false,"panels":[{"datasource":{"type":"prometheus","uid":"1YugLcnVk"},"fieldConfig":{"defaults":{"color":{"mode":"palette-classic"},"custom":{"axisBorderShow":false,"axisCenteredZero":false,"axisColorMode":"text","axisLabel":"","axisPlacement":"auto","barAlignment":0,"drawStyle":"line","fillOpacity":0,"gradientMode":"none","hideFrom":{"legend":false,"tooltip":false,"viz":false},"insertNulls":false,"lineInterpolation":"linear","lineWidth":1,"pointSize":5,"scaleDistribution":{"type":"linear"},"showPoints":"auto","spanNulls":false,"stacking":{"group":"A","mode":"none"},"thresholdsStyle":{"mode":"off"}},"mappings":[],"thresholds":{"mode":"absolute","steps":[{"color":"green","value":null},{"color":"red","value":80}]}},"overrides":[]},"gridPos":{"h":8,"w":12,"x":0,"y":0},"id":1,"options":{"legend":{"calcs":[],"displayMode":"list","placement":"bottom","showLegend":true},"tooltip":{"mode":"single","sort":"none"}},"targets":[{"datasource":{"type":"prometheus","uid":"1YugLcnVk"},"editorMode":"code","expr":"sum by (chain, servicetype, network, region, instance) (increase(kong_http_requests_total{ code=~\"5.*\"}[1m])) ","instant":false,"range":true,"refId":"A"}],"title":"5XX Error Count Increment 10 for a minute","type":"timeseries"}],"refresh":"","schemaVersion":39,"tags":[],"templating":{"list":[]},"time":{"from":"now-6h","to":"now"},"timepicker":{},"timezone":"","title":"Aptos, sui API Alert","uid":"d6dbfea9-31df-43c2-994c-77653a8f5563","version":3,"weekStart":""}}
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "aptos-sui-api-alert",
+        "url": "/d/d6dbfea9-31df-43c2-994c-77653a8f5563/aptos-sui-api-alert",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2023-07-25T04:54:03Z",
+        "updated": "2023-12-22T07:59:16Z",
+        "updatedBy": "tg9",
+        "createdBy": "Anonymous",
+        "version": 3,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 143,
+        "folderUid": "NuyAuQ-Vk",
+        "folderTitle": "LEGACY",
+        "folderUrl": "/dashboards/f/NuyAuQ-Vk/legacy",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": 232,
+        "links": [],
+        "liveNow": false,
+        "panels": [
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 1,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "sum by (chain, servicetype, network, region, instance) (increase(kong_http_requests_total{ code=~\"5.*\"}[1m])) ",
+                        "instant": false,
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "5XX Error Count Increment 10 for a minute",
+                "type": "timeseries"
+            }
+        ],
+        "refresh": "",
+        "schemaVersion": 39,
+        "tags": [],
+        "templating": {
+            "list": []
+        },
+        "time": {
+            "from": "now-6h",
+            "to": "now"
+        },
+        "timepicker": {},
+        "timezone": "",
+        "title": "Aptos, sui API Alert",
+        "uid": "d6dbfea9-31df-43c2-994c-77653a8f5563",
+        "version": 3,
+        "weekStart": ""
+    }
+}
