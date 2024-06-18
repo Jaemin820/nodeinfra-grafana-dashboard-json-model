@@ -1,0 +1,845 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "aptos-econiaindexer-caddy-log",
+        "url": "/d/b8b59c74-5873-4546-95c4-85b606f7b16b/aptos-econiaindexer-caddy-log",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2024-01-10T06:01:06Z",
+        "updated": "2024-04-12T04:49:08Z",
+        "updatedBy": "jaemin1",
+        "createdBy": "Anonymous",
+        "version": 21,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 172,
+        "folderUid": "edb18659-89b7-476b-a6d4-578b628a61ef",
+        "folderTitle": "1 🌏 Aptos",
+        "folderUrl": "/dashboards/f/edb18659-89b7-476b-a6d4-578b628a61ef/1-f09f8c8f-aptos",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": 292,
+        "links": [],
+        "liveNow": false,
+        "panels": [
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 39,
+                            "gradientMode": "hue",
+                            "hideFrom": {
+                                "graph": false,
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "smooth",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "log": 2,
+                                "type": "log"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": true,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "decimals": 0,
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "short"
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "HTTP Status 500"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "dark-orange",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "{statuscode=\"200\"} 200"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "green",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "{statuscode=\"404\"} 404"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "semi-dark-purple",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "{statuscode=\"500\"} 500"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "dark-red",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "HTTP Status 404"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "light-orange",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "HTTP Status 301"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "light-blue",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "HTTP Status 200"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "semi-dark-blue",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "__systemRef": "hideSeriesFrom",
+                            "matcher": {
+                                "id": "byNames",
+                                "options": {
+                                    "mode": "exclude",
+                                    "names": [
+                                        "HTTP Status "
+                                    ],
+                                    "prefix": "All except:",
+                                    "readOnly": true
+                                }
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.hideFrom",
+                                    "value": {
+                                        "legend": false,
+                                        "tooltip": false,
+                                        "viz": true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 8,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 1,
+                "maxDataPoints": 50,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "8.0.0-beta3",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "sum by (status) (count_over_time({job=~\"$job\", chain=~\"$chain\", network=~\"$network\", region=~\"$region\", node_name=~\"$node_name\"} |  __error__=\"\" [$__interval]))",
+                        "legendFormat": "HTTP Status {{status}}",
+                        "queryType": "range",
+                        "refId": "A"
+                    }
+                ],
+                "title": "HTTP status codes over time",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 100,
+                            "gradientMode": "hue",
+                            "hideFrom": {
+                                "graph": false,
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "smooth",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "log": 2,
+                                "type": "log"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "#EAB839",
+                                    "value": 0.2
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 0.3
+                                }
+                            ]
+                        },
+                        "unit": "s"
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "95th percentile"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "blue",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "max latency"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "super-light-blue",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "max latency"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.fillOpacity",
+                                    "value": 30
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 8,
+                    "x": 8,
+                    "y": 0
+                },
+                "id": 2,
+                "maxDataPoints": 50,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "8.0.0-beta3",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile_over_time(0.95,{job=~\"$job\", chain=~\"$chain\", network=~\"$network\", region=~\"$region\", node_name=~\"$node_name\"} | json | unwrap duration |  __error__=\"\"  [$__interval]) by (host)",
+                        "legendFormat": "95th percentile",
+                        "queryType": "range",
+                        "refId": "C"
+                    },
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "max by (host) (max_over_time({job=~\"$job\", chain=~\"$chain\", network=~\"$network\", region=~\"$region\", node_name=~\"$node_name\"} | json | unwrap duration |  __error__=\"\"  [$__interval]))",
+                        "legendFormat": "max latency",
+                        "queryType": "range",
+                        "refId": "D"
+                    }
+                ],
+                "title": "95th percentile of Request Time",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "gridPos": {
+                    "h": 11,
+                    "w": 8,
+                    "x": 16,
+                    "y": 0
+                },
+                "id": 6,
+                "options": {
+                    "dedupStrategy": "signature",
+                    "enableLogDetails": false,
+                    "prettifyLogMessage": false,
+                    "showCommonLabels": false,
+                    "showLabels": false,
+                    "showTime": false,
+                    "sortOrder": "Descending",
+                    "wrapLogMessage": false
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "{job=~\"$job\", chain=~\"$chain\", network=~\"$network\", region=~\"$region\", node_name=~\"$node_name\"} | json | line_format \"➡️ {{.ts}} \\n {{.status}} \\n {{.request_uri}}\"",
+                        "legendFormat": "",
+                        "queryType": "range",
+                        "refId": "A",
+                        "resolution": 1
+                    }
+                ],
+                "title": "Recent requests",
+                "type": "logs"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 24,
+                    "x": 0,
+                    "y": 11
+                },
+                "id": 4,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "loki",
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "sum by (request_remote_ip) (count_over_time({job=~\"$job\", chain=~\"$chain\", network=~\"$network\", region=~\"$region\", node_name=~\"$node_name\"} | json |  __error__=\"\" [1m]))",
+                        "queryType": "range",
+                        "refId": "A"
+                    }
+                ],
+                "title": "Request per Remote IP",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 24,
+                    "x": 0,
+                    "y": 20
+                },
+                "id": 5,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "loki",
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "sum by (request_uri) (count_over_time({job=~\"$job\", chain=~\"$chain\", network=~\"$network\", region=~\"$region\", node_name=~\"$node_name\"} | json |  __error__=\"\" [1m]))",
+                        "queryType": "range",
+                        "refId": "A"
+                    }
+                ],
+                "title": "Request per Request URI",
+                "type": "timeseries"
+            }
+        ],
+        "refresh": "",
+        "schemaVersion": 39,
+        "tags": [
+            "🔘 P3 ➖"
+        ],
+        "templating": {
+            "list": [
+                {
+                    "current": {
+                        "selected": true,
+                        "text": "caddy_access_log",
+                        "value": "caddy_access_log"
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values({job=\"caddy_access_log\"}, job)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "job",
+                    "options": [],
+                    "query": "label_values({job=\"caddy_access_log\"}, job)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": true,
+                        "text": "APT",
+                        "value": "APT"
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values({job=~\"$job\", chain=\"APT\"}, chain)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "chain",
+                    "options": [],
+                    "query": "label_values({job=~\"$job\", chain=\"APT\"}, chain)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": true,
+                        "text": "mainnet",
+                        "value": "mainnet"
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values({job=~\"$job\", chain=~\"$chain\"},network)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "network",
+                    "options": [],
+                    "query": "label_values({job=~\"$job\", chain=~\"$chain\"},network)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": true,
+                        "text": "taiwan",
+                        "value": "taiwan"
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values({job=~\"$job\", chain=~\"$chain\", network=~\"$network\"}, region)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "region",
+                    "options": [],
+                    "query": "label_values({job=~\"$job\", chain=~\"$chain\", network=~\"$network\"}, region)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "econia-manual-instance",
+                        "value": "econia-manual-instance"
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values({job=~\"$job\", chain=~\"$chain\", network=~\"$network\", region=~\"$region\"}, node_name)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "node_name",
+                    "options": [],
+                    "query": "label_values({job=~\"$job\", chain=~\"$chain\", network=~\"$network\", region=~\"$region\"}, node_name)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "/var/log/caddy/caddy.log",
+                        "value": "/var/log/caddy/caddy.log"
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values({job=~\"$job\", chain=~\"$chain\", network=~\"$network\", region=~\"$region\", node_name=~\"$node_name\"}, filename)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "filename",
+                    "options": [],
+                    "query": "label_values({job=~\"$job\", chain=~\"$chain\", network=~\"$network\", region=~\"$region\", node_name=~\"$node_name\"}, filename)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                }
+            ]
+        },
+        "time": {
+            "from": "now-1h",
+            "to": "now"
+        },
+        "timeRangeUpdatedDuringEditOrView": false,
+        "timepicker": {},
+        "timezone": "",
+        "title": "Aptos_EconiaIndexer_Caddy_Log",
+        "uid": "b8b59c74-5873-4546-95c4-85b606f7b16b",
+        "version": 21,
+        "weekStart": ""
+    }
+}

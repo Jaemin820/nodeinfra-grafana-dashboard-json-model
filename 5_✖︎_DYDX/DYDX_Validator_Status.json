@@ -1,0 +1,1929 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "dydx-validator-status",
+        "url": "/d/UJyurCTWzd/dydx-validator-status",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2023-06-29T05:05:01Z",
+        "updated": "2024-02-22T07:29:20Z",
+        "updatedBy": "jaemin1",
+        "createdBy": "Anonymous",
+        "version": 22,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 208,
+        "folderUid": "ade0d328-ce49-49ae-b2a6-0db65f23805a",
+        "folderTitle": "5 ✖︎ DYDX",
+        "folderUrl": "/dashboards/f/ade0d328-ce49-49ae-b2a6-0db65f23805a/5-dydx",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "datasource",
+                        "uid": "grafana"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "description": "A Grafana dashboard compatible with all the cosmos-sdk and tendermint based blockchains.",
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "gnetId": 11036,
+        "graphTooltip": 0,
+        "id": 213,
+        "links": [],
+        "liveNow": false,
+        "panels": [
+            {
+                "collapsed": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 64,
+                "panels": [],
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "refId": "A"
+                    }
+                ],
+                "title": "$chain $network overview",
+                "type": "row"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "gridPos": {
+                    "h": 2,
+                    "w": 24,
+                    "x": 0,
+                    "y": 1
+                },
+                "id": 62,
+                "options": {
+                    "code": {
+                        "language": "plaintext",
+                        "showLineNumbers": false,
+                        "showMiniMap": false
+                    },
+                    "content": "\u003cimg width=\"160px\" src=\"https://raw.githubusercontent.com/zhangyelong/cosmos-dashboard/master/logo/$chain_id.png\" /\u003e",
+                    "mode": "html"
+                },
+                "pluginVersion": "10.4.0-66955",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "refId": "A"
+                    }
+                ],
+                "transparent": true,
+                "type": "text"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "decimals": 0,
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "locale"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 4,
+                    "w": 6,
+                    "x": 0,
+                    "y": 3
+                },
+                "hideTimeOverride": false,
+                "id": 4,
+                "maxDataPoints": 100,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "none",
+                    "justifyMode": "auto",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showPercentChange": false,
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "10.4.0-66955",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": false,
+                        "expr": "cometbft_consensus_height{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "hide": false,
+                        "instant": false,
+                        "interval": "30s",
+                        "intervalFactor": 1,
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Block Height",
+                "type": "stat"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "decimals": 0,
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "locale"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 4,
+                    "w": 6,
+                    "x": 6,
+                    "y": 3
+                },
+                "hideTimeOverride": false,
+                "id": 40,
+                "maxDataPoints": 100,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "none",
+                    "justifyMode": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showPercentChange": false,
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "10.4.0-66955",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "cometbft_consensus_total_txs{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "interval": "30s",
+                        "intervalFactor": 1,
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Total Transactions",
+                "type": "stat"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "decimals": 2,
+                        "mappings": [
+                            {
+                                "options": {
+                                    "match": "null",
+                                    "result": {
+                                        "text": "N/A"
+                                    }
+                                },
+                                "type": "special"
+                            }
+                        ],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "s"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 4,
+                    "w": 6,
+                    "x": 12,
+                    "y": 3
+                },
+                "hideTimeOverride": true,
+                "id": 39,
+                "maxDataPoints": 100,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "area",
+                    "justifyMode": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [
+                            "mean"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showPercentChange": false,
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "10.4.0-66955",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "cometbft_consensus_block_interval_seconds{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "interval": "30s",
+                        "intervalFactor": 1,
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "timeFrom": "1h",
+                "title": "Avg Block Time",
+                "type": "stat"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "decimals": 0,
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "none"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 4,
+                    "w": 6,
+                    "x": 18,
+                    "y": 3
+                },
+                "hideTimeOverride": false,
+                "id": 47,
+                "maxDataPoints": 100,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "area",
+                    "justifyMode": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showPercentChange": false,
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "10.4.0-66955",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "cometbft_consensus_validators_power{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "instant": false,
+                        "interval": "30s",
+                        "intervalFactor": 1,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Bonded Tokens",
+                "type": "stat"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 7
+                },
+                "id": 66,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "cometbft_consensus_validator_last_signed_height{chain=~\"$chain\"}",
+                        "instant": false,
+                        "legendFormat": "__auto",
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Block Height Graph",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 7
+                },
+                "id": 65,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "cometbft_consensus_validator_missed_blocks{chain=~\"$chain\"}",
+                        "instant": false,
+                        "legendFormat": "__auto",
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Missed Blocks Graph",
+                "type": "timeseries"
+            },
+            {
+                "aliasColors": {
+                    "Height for last 3 hours": "#447ebc",
+                    "Total Transactions for last 3 hours": "#ef843c"
+                },
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "uid": "1YugLcnVk"
+                },
+                "decimals": 0,
+                "fieldConfig": {
+                    "defaults": {
+                        "links": []
+                    },
+                    "overrides": []
+                },
+                "fill": 3,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 9,
+                    "w": 12,
+                    "x": 0,
+                    "y": 15
+                },
+                "hiddenSeries": false,
+                "hideTimeOverride": false,
+                "id": 15,
+                "legend": {
+                    "alignAsTable": true,
+                    "avg": false,
+                    "current": true,
+                    "max": true,
+                    "min": true,
+                    "rightSide": false,
+                    "show": true,
+                    "sideWidth": 350,
+                    "total": false,
+                    "values": true
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "10.4.0-66955",
+                "pointradius": 5,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "cometbft_consensus_validators{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "instant": false,
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "Active",
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "cometbft_consensus_missing_validators{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "Missing",
+                        "refId": "B"
+                    },
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "cometbft_consensus_byzantine_validators{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "Byzantine",
+                        "refId": "C"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Validators",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "$$hashKey": "object:359",
+                        "decimals": 0,
+                        "format": "locale",
+                        "label": "",
+                        "logBase": 1,
+                        "min": "0",
+                        "show": true
+                    },
+                    {
+                        "$$hashKey": "object:360",
+                        "format": "none",
+                        "logBase": 1,
+                        "show": false
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {
+                    "Height for last 3 hours": "#447ebc",
+                    "Total Transactions for last 3 hours": "#ef843c"
+                },
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "links": []
+                    },
+                    "overrides": []
+                },
+                "fill": 3,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 9,
+                    "w": 12,
+                    "x": 12,
+                    "y": 15
+                },
+                "hiddenSeries": false,
+                "hideTimeOverride": false,
+                "id": 48,
+                "legend": {
+                    "alignAsTable": true,
+                    "avg": false,
+                    "current": true,
+                    "max": true,
+                    "min": true,
+                    "rightSide": false,
+                    "show": true,
+                    "sideWidth": 350,
+                    "total": false,
+                    "values": true
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "10.4.0-66955",
+                "pointradius": 5,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "cometbft_consensus_validators_power{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "instant": false,
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "Online",
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "cometbft_consensus_missing_validators_power{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "Missing",
+                        "refId": "B"
+                    },
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "cometbft_consensus_byzantine_validators_power{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "Byzantine",
+                        "refId": "C"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Voting Power",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "decimals": 0,
+                        "format": "short",
+                        "label": "",
+                        "logBase": 1,
+                        "min": "0",
+                        "show": true
+                    },
+                    {
+                        "format": "none",
+                        "logBase": 1,
+                        "show": false
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {
+                    "Height for last 3 hours": "#447ebc",
+                    "Total Transactions for last 3 hours": "#ef843c"
+                },
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "links": [],
+                        "unitScale": true
+                    },
+                    "overrides": []
+                },
+                "fill": 3,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 5,
+                    "w": 12,
+                    "x": 0,
+                    "y": 24
+                },
+                "hiddenSeries": false,
+                "hideTimeOverride": false,
+                "id": 49,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": true,
+                    "current": false,
+                    "max": true,
+                    "min": false,
+                    "rightSide": false,
+                    "show": true,
+                    "total": false,
+                    "values": true
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "10.3.0-64796",
+                "pointradius": 5,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "cometbft_consensus_block_size_bytes{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "instant": false,
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "Block Size",
+                        "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Block Size",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "$$hashKey": "object:286",
+                        "decimals": 2,
+                        "format": "bytes",
+                        "label": "",
+                        "logBase": 1,
+                        "min": "0",
+                        "show": true
+                    },
+                    {
+                        "$$hashKey": "object:287",
+                        "format": "none",
+                        "logBase": 1,
+                        "show": false
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {
+                    "Height for last 3 hours": "#447ebc",
+                    "Total Transactions for last 3 hours": "#ef843c"
+                },
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "uid": "1YugLcnVk"
+                },
+                "decimals": 0,
+                "fieldConfig": {
+                    "defaults": {
+                        "links": [],
+                        "unitScale": true
+                    },
+                    "overrides": []
+                },
+                "fill": 3,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 5,
+                    "w": 12,
+                    "x": 12,
+                    "y": 24
+                },
+                "hiddenSeries": false,
+                "hideTimeOverride": false,
+                "id": 50,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": true,
+                    "current": false,
+                    "max": true,
+                    "min": false,
+                    "rightSide": false,
+                    "show": true,
+                    "total": true,
+                    "values": true
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "10.3.0-64796",
+                "pointradius": 5,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "cometbft_consensus_num_txs{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "instant": false,
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "Transactions",
+                        "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Transactions",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "$$hashKey": "object:74",
+                        "decimals": 0,
+                        "format": "short",
+                        "label": "",
+                        "logBase": 1,
+                        "min": "0",
+                        "show": true
+                    },
+                    {
+                        "$$hashKey": "object:75",
+                        "format": "none",
+                        "logBase": 1,
+                        "show": false
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "collapsed": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 29
+                },
+                "id": 55,
+                "panels": [],
+                "repeat": "instance",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "refId": "A"
+                    }
+                ],
+                "title": "instance overview: $instance",
+                "type": "row"
+            },
+            {
+                "datasource": {
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "decimals": 0,
+                        "mappings": [],
+                        "max": 20,
+                        "min": 0,
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "#e24d42",
+                                    "value": null
+                                },
+                                {
+                                    "color": "#ef843c",
+                                    "value": 2
+                                },
+                                {
+                                    "color": "#7eb26d",
+                                    "value": 5
+                                }
+                            ]
+                        },
+                        "unit": "short"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 4,
+                    "w": 6,
+                    "x": 0,
+                    "y": 30
+                },
+                "hideTimeOverride": true,
+                "id": 53,
+                "options": {
+                    "minVizHeight": 200,
+                    "minVizWidth": 200,
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "last"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showThresholdLabels": false,
+                    "showThresholdMarkers": true,
+                    "sizing": "auto"
+                },
+                "pluginVersion": "10.4.0-66955",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "cometbft_p2p_peers{chain=\"$chain\", instance=~\"$instance:26660\"}",
+                        "format": "time_series",
+                        "instant": true,
+                        "interval": "30s",
+                        "intervalFactor": 1,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Connected Peers",
+                "type": "gauge"
+            },
+            {
+                "datasource": {
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "decimals": 0,
+                        "mappings": [],
+                        "max": 50,
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "#7eb26d",
+                                    "value": null
+                                },
+                                {
+                                    "color": "#ef843c",
+                                    "value": 10
+                                },
+                                {
+                                    "color": "#e24d42",
+                                    "value": 20
+                                }
+                            ]
+                        },
+                        "unit": "short"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 4,
+                    "w": 6,
+                    "x": 6,
+                    "y": 30
+                },
+                "hideTimeOverride": true,
+                "id": 56,
+                "options": {
+                    "minVizHeight": 200,
+                    "minVizWidth": 200,
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "last"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showThresholdLabels": false,
+                    "showThresholdMarkers": true,
+                    "sizing": "auto"
+                },
+                "pluginVersion": "10.4.0-66955",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "cometbft_mempool_size{chain=\"$chain\", instance=~\"$instance:26660\"}",
+                        "format": "time_series",
+                        "instant": true,
+                        "interval": "30s",
+                        "intervalFactor": 1,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Unconfirmed Transactions",
+                "type": "gauge"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "decimals": 0,
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "short"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 4,
+                    "w": 6,
+                    "x": 12,
+                    "y": 30
+                },
+                "hideTimeOverride": true,
+                "id": 60,
+                "maxDataPoints": 100,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "area",
+                    "justifyMode": "auto",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showPercentChange": false,
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "10.4.0-66955",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "cometbft_mempool_failed_txs{chain=\"$chain\", instance=~\"$instance:26660\"}",
+                        "format": "time_series",
+                        "instant": false,
+                        "interval": "30s",
+                        "intervalFactor": 1,
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Failed Transactions",
+                "type": "stat"
+            },
+            {
+                "datasource": {
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "decimals": 0,
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "locale"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 4,
+                    "w": 6,
+                    "x": 18,
+                    "y": 30
+                },
+                "hideTimeOverride": true,
+                "id": 61,
+                "maxDataPoints": 100,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "none",
+                    "justifyMode": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showPercentChange": false,
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "10.4.0-66955",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "cometbft_mempool_recheck_times{chain=\"$chain\", instance=~\"$instance:26660\"}",
+                        "format": "time_series",
+                        "instant": true,
+                        "interval": "30s",
+                        "intervalFactor": 1,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Recheck Times",
+                "type": "stat"
+            },
+            {
+                "aliasColors": {},
+                "bars": true,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "links": []
+                    },
+                    "overrides": []
+                },
+                "fill": 1,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 9,
+                    "w": 12,
+                    "x": 0,
+                    "y": 34
+                },
+                "hiddenSeries": false,
+                "id": 59,
+                "legend": {
+                    "avg": false,
+                    "current": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": false,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "10.4.0-66955",
+                "pointradius": 5,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "cometbft_p2p_peer_receive_bytes_total{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{peer_id}}",
+                        "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Total Network Input",
+                "tooltip": {
+                    "shared": false,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "mode": "series",
+                    "show": false,
+                    "values": [
+                        "current"
+                    ]
+                },
+                "yaxes": [
+                    {
+                        "format": "bytes",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": false
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": true,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "links": []
+                    },
+                    "overrides": []
+                },
+                "fill": 1,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 9,
+                    "w": 12,
+                    "x": 12,
+                    "y": 34
+                },
+                "hiddenSeries": false,
+                "id": 58,
+                "legend": {
+                    "avg": false,
+                    "current": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": false,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "10.4.0-66955",
+                "pointradius": 5,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "cometbft_p2p_peer_send_bytes_total{chain=\"$chain\", instance=\"$instance:26660\"}",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{peer_id}}",
+                        "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Total Network Output",
+                "tooltip": {
+                    "shared": false,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "mode": "series",
+                    "show": false,
+                    "values": [
+                        "current"
+                    ]
+                },
+                "yaxes": [
+                    {
+                        "format": "bytes",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": false
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            }
+        ],
+        "refresh": "",
+        "schemaVersion": 39,
+        "tags": [
+            "Blockchain",
+            "Cosmos",
+            "production"
+        ],
+        "templating": {
+            "list": [
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "DYDX",
+                        "value": "DYDX"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{chain=\"DYDX\"}, chain)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "chain",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{chain=\"DYDX\"}, chain)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": true,
+                        "text": "testnet",
+                        "value": "testnet"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{chain=~\"$chain\"}, network)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "network",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{chain=~\"$chain\"}, network)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "validator",
+                        "value": "validator"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{chain=~\"$chain\", network=~\"$network\", servicetype=~\"validator\"}, servicetype)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "servicetype",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{chain=~\"$chain\", network=~\"$network\", servicetype=~\"validator\"}, servicetype)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "prod-DYDX-testnet-validator",
+                        "value": "prod-DYDX-testnet-validator"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{chain=~\"$chain\",network=~\"$network\", servicetype=~\"$servicetype\"},job)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "label": "JOB",
+                    "multi": false,
+                    "name": "job",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{chain=~\"$chain\",network=~\"$network\", servicetype=~\"$servicetype\"},job)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "dydx-testnet-validator",
+                        "value": "dydx-testnet-validator"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{job=~\"$job\",instance=~\"$instance:9100\"}, nodename)",
+                    "hide": 2,
+                    "includeAll": false,
+                    "label": "Host",
+                    "multi": false,
+                    "name": "nodename",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{job=~\"$job\",instance=~\"$instance:9100\"}, nodename)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 5,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "dydx-testnet.nodeinfravalidators.com",
+                        "value": "dydx-testnet.nodeinfravalidators.com"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(up{job=~\"$job\", servicetype=~\"$servicetype\", purpose!~\"update_message\"}, instance)",
+                    "description": "",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "instance",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(up{job=~\"$job\",servicetype=~\"$servicetype\", purpose!~\"update_message\"}, instance)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "/^(?\u003cvalue\u003e.+):[0-9].+$/",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                },
+                {
+                    "auto": false,
+                    "auto_count": 100,
+                    "auto_min": "10s",
+                    "current": {
+                        "selected": false,
+                        "text": "1m",
+                        "value": "1m"
+                    },
+                    "hide": 0,
+                    "label": "Interval",
+                    "name": "interval",
+                    "options": [
+                        {
+                            "selected": false,
+                            "text": "30s",
+                            "value": "30s"
+                        },
+                        {
+                            "selected": true,
+                            "text": "1m",
+                            "value": "1m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "2m",
+                            "value": "2m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "3m",
+                            "value": "3m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "5m",
+                            "value": "5m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "10m",
+                            "value": "10m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "30m",
+                            "value": "30m"
+                        }
+                    ],
+                    "query": "30s,1m,2m,3m,5m,10m,30m",
+                    "queryValue": "",
+                    "refresh": 2,
+                    "skipUrlSync": false,
+                    "type": "interval"
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "b0988639",
+                        "value": "b0988639"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(aptos_connections{direction=\"inbound\"},peer_id)",
+                    "hide": 2,
+                    "includeAll": false,
+                    "label": "nodeID",
+                    "multi": false,
+                    "name": "nodeID",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(aptos_connections{direction=\"inbound\"},peer_id)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                },
+                {
+                    "current": {
+                        "isNone": true,
+                        "selected": false,
+                        "text": "None",
+                        "value": ""
+                    },
+                    "datasource": {
+                        "type": "yesoreyeram-infinity-datasource",
+                        "uid": "nIVhnOS4z"
+                    },
+                    "definition": "Infinity- (legacy) CollectionLookup(mainnet,mainnet.aptoslabs.com,llt,testnet.aptoslabs.com,$chain)",
+                    "hide": 2,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "chainAPI",
+                    "options": [],
+                    "query": {
+                        "infinityQuery": {
+                            "columns": [],
+                            "filters": [],
+                            "format": "table",
+                            "refId": "variable",
+                            "root_selector": "",
+                            "source": "url",
+                            "type": "json",
+                            "url": "https://jsonplaceholder.typicode.com/users",
+                            "url_options": {
+                                "data": "",
+                                "method": "GET"
+                            }
+                        },
+                        "query": "CollectionLookup(mainnet,mainnet.aptoslabs.com,llt,testnet.aptoslabs.com,$chain)",
+                        "queryType": "legacy"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                }
+            ]
+        },
+        "time": {
+            "from": "now-1h",
+            "to": "now"
+        },
+        "timepicker": {
+            "refresh_intervals": [
+                "5s",
+                "10s",
+                "30s",
+                "1m",
+                "5m",
+                "15m",
+                "30m",
+                "1h",
+                "2h",
+                "1d"
+            ],
+            "time_options": [
+                "5m",
+                "15m",
+                "1h",
+                "6h",
+                "12h",
+                "24h",
+                "2d",
+                "7d",
+                "30d"
+            ]
+        },
+        "timezone": "",
+        "title": "DYDX_Validator_Status",
+        "uid": "UJyurCTWzd",
+        "version": 22,
+        "weekStart": ""
+    }
+}

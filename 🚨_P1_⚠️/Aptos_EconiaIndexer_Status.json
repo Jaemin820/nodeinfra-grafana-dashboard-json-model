@@ -1,0 +1,765 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "aptos-econiaindexer-status",
+        "url": "/d/awd09awidawsd/aptos-econiaindexer-status",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2024-04-03T07:15:45Z",
+        "updated": "2024-04-03T07:16:56Z",
+        "updatedBy": "jaemin1",
+        "createdBy": "jaemin1",
+        "version": 2,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 306,
+        "folderUid": "fdembllwltgxsf",
+        "folderTitle": "🚨 P1 ⚠️",
+        "folderUrl": "/dashboards/f/fdembllwltgxsf/f09f9aa8-p1-e29aa0-efb88f",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": 346,
+        "links": [],
+        "liveNow": false,
+        "panels": [
+            {
+                "collapsed": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 20,
+                "panels": [],
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "refId": "A"
+                    }
+                ],
+                "title": "Econia Health",
+                "type": "row"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "mappings": [
+                            {
+                                "options": {
+                                    "0": {
+                                        "index": 0,
+                                        "text": "Down"
+                                    },
+                                    "1": {
+                                        "index": 1,
+                                        "text": "OK"
+                                    }
+                                },
+                                "type": "value"
+                            }
+                        ],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "red",
+                                    "value": null
+                                },
+                                {
+                                    "color": "green",
+                                    "value": 1
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Aptos_Econia_Websocket_Status"
+                            },
+                            "properties": [
+                                {
+                                    "id": "mappings",
+                                    "value": [
+                                        {
+                                            "options": {
+                                                "0": {
+                                                    "color": "red",
+                                                    "index": 1,
+                                                    "text": "Down"
+                                                },
+                                                "1": {
+                                                    "color": "green",
+                                                    "index": 0,
+                                                    "text": "Up"
+                                                }
+                                            },
+                                            "type": "value"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "thresholds",
+                                    "value": {
+                                        "mode": "absolute",
+                                        "steps": [
+                                            {
+                                                "color": "red",
+                                                "value": null
+                                            },
+                                            {
+                                                "color": "green",
+                                                "value": 1
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 5,
+                    "w": 12,
+                    "x": 0,
+                    "y": 1
+                },
+                "id": 43,
+                "options": {
+                    "minVizHeight": 200,
+                    "minVizWidth": 200,
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showThresholdLabels": false,
+                    "showThresholdMarkers": true,
+                    "sizing": "auto",
+                    "text": {}
+                },
+                "pluginVersion": "11.1.0-68838",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": false,
+                        "expr": "Aptos_Econia_API_Status{chain=~\"$chain\", network=~\"$network\"}",
+                        "instant": true,
+                        "interval": "",
+                        "legendFormat": "{{chain}} {{network}} {{region}}",
+                        "range": false,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Aptos Econia API Status",
+                "type": "gauge"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "mappings": [
+                            {
+                                "options": {
+                                    "0": {
+                                        "index": 0,
+                                        "text": "Down"
+                                    },
+                                    "1": {
+                                        "index": 1,
+                                        "text": "OK"
+                                    }
+                                },
+                                "type": "value"
+                            }
+                        ],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "red",
+                                    "value": null
+                                },
+                                {
+                                    "color": "green",
+                                    "value": 1
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Aptos_Econia_Websocket_Status"
+                            },
+                            "properties": [
+                                {
+                                    "id": "mappings",
+                                    "value": [
+                                        {
+                                            "options": {
+                                                "0": {
+                                                    "color": "red",
+                                                    "index": 1,
+                                                    "text": "Down"
+                                                },
+                                                "1": {
+                                                    "color": "green",
+                                                    "index": 0,
+                                                    "text": "Up"
+                                                }
+                                            },
+                                            "type": "value"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "thresholds",
+                                    "value": {
+                                        "mode": "absolute",
+                                        "steps": [
+                                            {
+                                                "color": "red",
+                                                "value": null
+                                            },
+                                            {
+                                                "color": "green",
+                                                "value": 1
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 5,
+                    "w": 12,
+                    "x": 12,
+                    "y": 1
+                },
+                "id": 42,
+                "options": {
+                    "minVizHeight": 200,
+                    "minVizWidth": 200,
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showThresholdLabels": false,
+                    "showThresholdMarkers": true,
+                    "sizing": "auto",
+                    "text": {}
+                },
+                "pluginVersion": "11.1.0-68838",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": false,
+                        "expr": "Aptos_Econia_Websocket_Status{chain=~\"$chain\", network=~\"$network\"}",
+                        "instant": true,
+                        "interval": "",
+                        "legendFormat": "{{chain}} {{network}} {{region}}",
+                        "range": false,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Aptos Econia Websocket Status",
+                "type": "gauge"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 6
+                },
+                "id": 1,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "maxHeight": 600,
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "Aptos_Econia_Indexer_Processor_Status{chain=~\"$chain\", network=~\"$network\"}",
+                        "instant": false,
+                        "legendFormat": "__auto",
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Aptos Econia Indexer Processor Status",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 6
+                },
+                "id": 44,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "maxHeight": 600,
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "Aptos_Econia_Indexer_Aggregator_User_Processed_Status{chain=~\"$chain\", network=~\"$network\"}",
+                        "instant": false,
+                        "legendFormat": "__auto",
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Aptos Econia Indexer aggregator user Processor Status",
+                "type": "timeseries"
+            }
+        ],
+        "refresh": "",
+        "schemaVersion": 39,
+        "tags": [
+            "Aptos",
+            "EconiaIndexer"
+        ],
+        "templating": {
+            "list": [
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "production",
+                        "value": "production"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(up{}, deployment)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "deployment",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(up{}, deployment)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "APT",
+                        "value": "APT"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(up{chain=~\"APT\"}, chain)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "chain",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(up{chain=~\"APT\"}, chain)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "mainnet",
+                        "value": "mainnet"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(up{chain=~\"$chain\"}, network)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "network",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(up{chain=~\"$chain\"}, network)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "econia_indexer",
+                        "value": "econia_indexer"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(up{servicetype=~\"econia_indexer\"}, servicetype)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "servicetype",
+                    "options": [],
+                    "query": {
+                        "qryType": 1,
+                        "query": "label_values(up{servicetype=~\"econia_indexer\"}, servicetype)",
+                        "refId": "PrometheusVariableQueryEditor-VariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "PhoenixNAP",
+                        "value": "PhoenixNAP"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(up{chain=~\"$chain\", network=~\"$network\", servicetype=~\"$servicetype\"},cloud)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "cloud",
+                    "options": [],
+                    "query": {
+                        "qryType": 1,
+                        "query": "label_values(up{chain=~\"$chain\", network=~\"$network\", servicetype=~\"$servicetype\"},cloud)",
+                        "refId": "PrometheusVariableQueryEditor-VariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 5,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "auto": false,
+                    "auto_count": 100,
+                    "auto_min": "10s",
+                    "current": {
+                        "selected": false,
+                        "text": "1m",
+                        "value": "1m"
+                    },
+                    "hide": 0,
+                    "label": "Interval",
+                    "name": "interval",
+                    "options": [
+                        {
+                            "selected": false,
+                            "text": "30s",
+                            "value": "30s"
+                        },
+                        {
+                            "selected": true,
+                            "text": "1m",
+                            "value": "1m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "2m",
+                            "value": "2m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "3m",
+                            "value": "3m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "5m",
+                            "value": "5m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "10m",
+                            "value": "10m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "30m",
+                            "value": "30m"
+                        }
+                    ],
+                    "query": "30s,1m,2m,3m,5m,10m,30m",
+                    "queryValue": "",
+                    "refresh": 2,
+                    "skipUrlSync": false,
+                    "type": "interval"
+                }
+            ]
+        },
+        "time": {
+            "from": "now-1h",
+            "to": "now"
+        },
+        "timeRangeUpdatedDuringEditOrView": false,
+        "timepicker": {},
+        "timezone": "",
+        "title": "Aptos_EconiaIndexer_Status",
+        "uid": "awd09awidawsd",
+        "version": 2,
+        "weekStart": ""
+    }
+}

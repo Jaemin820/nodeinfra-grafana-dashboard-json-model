@@ -1,0 +1,427 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "icp-nodes-status",
+        "url": "/d/aidjsaw0d9awd/icp-nodes-status",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2024-04-03T07:24:26Z",
+        "updated": "2024-04-03T07:24:36Z",
+        "updatedBy": "jaemin1",
+        "createdBy": "jaemin1",
+        "version": 2,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 306,
+        "folderUid": "fdembllwltgxsf",
+        "folderTitle": "🚨 P1 ⚠️",
+        "folderUrl": "/dashboards/f/fdembllwltgxsf/f09f9aa8-p1-e29aa0-efb88f",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": 347,
+        "links": [],
+        "liveNow": false,
+        "panels": [
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "mappings": [
+                            {
+                                "options": {
+                                    "0": {
+                                        "color": "red",
+                                        "index": 1,
+                                        "text": "DOWN"
+                                    },
+                                    "1": {
+                                        "color": "green",
+                                        "index": 0,
+                                        "text": "UP"
+                                    }
+                                },
+                                "type": "value"
+                            }
+                        ],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "text",
+                                    "value": null
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 3,
+                    "w": 2,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 5,
+                "options": {
+                    "colorMode": "background",
+                    "graphMode": "none",
+                    "justifyMode": "auto",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "last"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showPercentChange": false,
+                    "textMode": "value",
+                    "wideLayout": true
+                },
+                "pluginVersion": "11.1.0-68838",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "ic_node_api_up",
+                        "legendFormat": "__auto",
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "IC API Status",
+                "transparent": true,
+                "type": "stat"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "red",
+                                    "value": null
+                                },
+                                {
+                                    "color": "green",
+                                    "value": 28
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 3,
+                    "w": 4,
+                    "x": 2,
+                    "y": 0
+                },
+                "id": 2,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "none",
+                    "justifyMode": "auto",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "last"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showPercentChange": false,
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "11.1.0-68838",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "ic_node_count",
+                        "legendFormat": "__auto",
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Node Count",
+                "transparent": true,
+                "type": "stat"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "links": [
+                            {
+                                "targetBlank": true,
+                                "title": "IC Dashboard",
+                                "url": "https://dashboard.internetcomputer.org/provider/${__field.labels.node_provider_id}"
+                            }
+                        ],
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "text",
+                                    "value": null
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 3,
+                    "w": 18,
+                    "x": 6,
+                    "y": 0
+                },
+                "id": 3,
+                "options": {
+                    "colorMode": "none",
+                    "graphMode": "none",
+                    "justifyMode": "auto",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showPercentChange": false,
+                    "text": {
+                        "valueSize": 20
+                    },
+                    "textMode": "name",
+                    "wideLayout": true
+                },
+                "pluginVersion": "11.1.0-68838",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": false,
+                        "expr": "ic_node_count",
+                        "instant": true,
+                        "legendFormat": "{{node_provider_id}}",
+                        "range": false,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Node Provider ID",
+                "transparent": true,
+                "type": "stat"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "links": [
+                            {
+                                "targetBlank": true,
+                                "title": "",
+                                "url": "https://dashboard.internetcomputer.org/node/${__field.labels.node_id}"
+                            }
+                        ],
+                        "mappings": [
+                            {
+                                "options": {
+                                    "0": {
+                                        "color": "orange",
+                                        "index": 5,
+                                        "text": "UNDEFINED"
+                                    },
+                                    "1": {
+                                        "color": "semi-dark-green",
+                                        "index": 0,
+                                        "text": "UP"
+                                    },
+                                    "2": {
+                                        "color": "light-green",
+                                        "index": 1,
+                                        "text": "UNASSIGNED"
+                                    },
+                                    "3": {
+                                        "color": "light-red",
+                                        "index": 2,
+                                        "text": "DEGRADED"
+                                    },
+                                    "4": {
+                                        "color": "semi-dark-red",
+                                        "index": 3,
+                                        "text": "DOWN"
+                                    },
+                                    "5": {
+                                        "color": "orange",
+                                        "index": 4,
+                                        "text": "UNRECOGNIZED"
+                                    }
+                                },
+                                "type": "value"
+                            }
+                        ],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "text",
+                                    "value": null
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 19,
+                    "w": 24,
+                    "x": 0,
+                    "y": 3
+                },
+                "id": 4,
+                "options": {
+                    "colorMode": "background_solid",
+                    "graphMode": "none",
+                    "justifyMode": "auto",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showPercentChange": false,
+                    "text": {
+                        "titleSize": 20
+                    },
+                    "textMode": "value_and_name",
+                    "wideLayout": true
+                },
+                "pluginVersion": "11.1.0-68838",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": false,
+                        "expr": "ic_node_status",
+                        "instant": true,
+                        "legendFormat": "{{node_id}}",
+                        "range": false,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Node Status Overview",
+                "transformations": [
+                    {
+                        "id": "renameByRegex",
+                        "options": {
+                            "regex": "([0-9a-z]{5})-.*-([0-9a-z]{3})",
+                            "renamePattern": "$1...$2"
+                        }
+                    }
+                ],
+                "type": "stat"
+            }
+        ],
+        "refresh": "1m",
+        "schemaVersion": 39,
+        "tags": [
+            "ICP"
+        ],
+        "templating": {
+            "list": []
+        },
+        "time": {
+            "from": "now-5m",
+            "to": "now"
+        },
+        "timeRangeUpdatedDuringEditOrView": false,
+        "timepicker": {},
+        "timezone": "",
+        "title": "ICP_Nodes_Status",
+        "uid": "aidjsaw0d9awd",
+        "version": 2,
+        "weekStart": ""
+    }
+}

@@ -1,0 +1,2048 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "polygon-cdk-db",
+        "url": "/d/awd-a0swd09w09a-dada/polygon-cdk-db",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2024-04-03T07:27:32Z",
+        "updated": "2024-04-03T07:49:13Z",
+        "updatedBy": "jaemin1",
+        "createdBy": "jaemin1",
+        "version": 2,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 307,
+        "folderUid": "edembmgj8zvuoe",
+        "folderTitle": "🔶 P2 ✴️",
+        "folderUrl": "/dashboards/f/edembmgj8zvuoe/f09f94b6-p2-e29cb4-efb88f",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": 351,
+        "links": [],
+        "liveNow": false,
+        "panels": [
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 21,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "maxHeight": 600,
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "loki",
+                            "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                        },
+                        "editorMode": "code",
+                        "expr": "count_over_time({job=\"state-db\"} [1s])",
+                        "queryType": "range",
+                        "refId": "A"
+                    }
+                ],
+                "title": "State DB에 요청하는 초당  SQL Query 개수",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                },
+                "gridPos": {
+                    "h": 12,
+                    "w": 11,
+                    "x": 12,
+                    "y": 0
+                },
+                "id": 23,
+                "options": {
+                    "dedupStrategy": "none",
+                    "enableLogDetails": true,
+                    "prettifyLogMessage": false,
+                    "showCommonLabels": false,
+                    "showLabels": false,
+                    "showTime": false,
+                    "sortOrder": "Descending",
+                    "wrapLogMessage": false
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "loki",
+                            "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                        },
+                        "editorMode": "code",
+                        "expr": "{job=\"state-db\"}  | json | line_format \"\u001b[35m{{.timestamp}}\u001b[0m \u001b[32m{{.remote_host}}\u001b[0m\\n{{.message}}\\n{{.detail}}\"",
+                        "queryType": "range",
+                        "refId": "A"
+                    }
+                ],
+                "title": "State DB 전체 logs",
+                "type": "logs"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 12,
+                    "x": 0,
+                    "y": 8
+                },
+                "id": 18,
+                "options": {
+                    "dedupStrategy": "none",
+                    "enableLogDetails": true,
+                    "prettifyLogMessage": false,
+                    "showCommonLabels": false,
+                    "showLabels": false,
+                    "showTime": false,
+                    "sortOrder": "Descending",
+                    "wrapLogMessage": false
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "loki",
+                            "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                        },
+                        "editorMode": "code",
+                        "expr": "{job=\"state-db\"}  | json | remote_host=~\".*sequencer.*\"  | message=~\".*UPDATE|INSERT.*\" | line_format \"\u001b[35m{{.timestamp}}\u001b[0m \u001b[32m{{.remote_host}}\u001b[0m\\n{{.message}}\\n{{.detail}}\"",
+                        "queryType": "range",
+                        "refId": "A"
+                    }
+                ],
+                "title": "Sequencer가 State DB에 요청하는 쿼리 로그 (INSERT, UPDATE 만)",
+                "type": "logs"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 11,
+                    "x": 12,
+                    "y": 12
+                },
+                "id": 19,
+                "options": {
+                    "dedupStrategy": "none",
+                    "enableLogDetails": true,
+                    "prettifyLogMessage": false,
+                    "showCommonLabels": false,
+                    "showLabels": false,
+                    "showTime": false,
+                    "sortOrder": "Descending",
+                    "wrapLogMessage": false
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "loki",
+                            "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                        },
+                        "editorMode": "code",
+                        "expr": "{job=\"sequence-sender\"} | json | line_format \"{{.log}}\"",
+                        "queryType": "range",
+                        "refId": "A"
+                    }
+                ],
+                "title": "Sequence Sender logs",
+                "type": "logs"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "inspect": false
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "raw_txs_data"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 210
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "batch_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 108
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 7,
+                    "w": 9,
+                    "x": 0,
+                    "y": 17
+                },
+                "id": 1,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": [
+                        {
+                            "desc": true,
+                            "displayName": "batch_num"
+                        }
+                    ]
+                },
+                "pluginVersion": "11.1.0-68838",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT *\nFROM state.batch\nORDER BY batch_num DESC\nLIMIT 100",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "State DB - batch Table",
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "inspect": false
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "orange",
+                                    "value": 70
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 85
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "from_batch_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 127
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "to_batch_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 118
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 3,
+                    "x": 9,
+                    "y": 17
+                },
+                "id": 10,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": []
+                },
+                "pluginVersion": "11.1.0-68838",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT *\nFROM state.sequences\nORDER BY from_batch_num DESC\nLIMIT 501",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "State DB - sequences Table",
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 11,
+                    "x": 12,
+                    "y": 21
+                },
+                "id": 22,
+                "options": {
+                    "dedupStrategy": "none",
+                    "enableLogDetails": true,
+                    "prettifyLogMessage": false,
+                    "showCommonLabels": false,
+                    "showLabels": false,
+                    "showTime": false,
+                    "sortOrder": "Descending",
+                    "wrapLogMessage": false
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "loki",
+                            "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                        },
+                        "editorMode": "code",
+                        "expr": "{job=\"aggregator\"} | json | line_format \"{{.log}}\"",
+                        "queryType": "range",
+                        "refId": "A"
+                    }
+                ],
+                "title": "Aggregator logs",
+                "type": "logs"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "inspect": false
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "orange",
+                                    "value": 70
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 85
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "block_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 105
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "uncles"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 85
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "batch_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 119
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "created_at"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 187
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "received_at"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 172
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 7,
+                    "w": 9,
+                    "x": 0,
+                    "y": 24
+                },
+                "id": 5,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": [
+                        {
+                            "desc": true,
+                            "displayName": "batch_num"
+                        }
+                    ]
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT batch_num, block_num, block_hash, parent_hash, state_root, received_at, created_at\nFROM state.l2block\nORDER BY block_num DESC\nLIMIT 100",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "State DB - l2block Table",
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 4,
+                    "w": 3,
+                    "x": 9,
+                    "y": 25
+                },
+                "id": 26,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "area",
+                    "justifyMode": "auto",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT batch_num\nFROM state.batch\nORDER BY batch_num DESC\nLIMIT 1",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "Recent L2 Batch Number",
+                "type": "stat"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "orange",
+                                    "value": 70
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 85
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 6,
+                    "w": 3,
+                    "x": 9,
+                    "y": 29
+                },
+                "id": 27,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "area",
+                    "justifyMode": "auto",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT l2_block_num\nFROM state.transaction\nORDER BY  l2_block_num DESC\nLIMIT 1",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "Recent L2 Block Number",
+                "type": "stat"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 11,
+                    "x": 12,
+                    "y": 30
+                },
+                "id": 20,
+                "options": {
+                    "dedupStrategy": "none",
+                    "enableLogDetails": true,
+                    "prettifyLogMessage": false,
+                    "showCommonLabels": false,
+                    "showLabels": false,
+                    "showTime": false,
+                    "sortOrder": "Descending",
+                    "wrapLogMessage": false
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "loki",
+                            "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                        },
+                        "editorMode": "code",
+                        "expr": "{job=\"eth-tx-manager\"} | json | line_format \"{{.log}}\"",
+                        "queryType": "range",
+                        "refId": "A"
+                    }
+                ],
+                "title": "Ethereum Tx Manager logs",
+                "type": "logs"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "inspect": false
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "orange",
+                                    "value": 70
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 85
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "block_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 105
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "uncles"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 85
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "batch_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 119
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "created_at"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 187
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "received_at"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 172
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 7,
+                    "w": 9,
+                    "x": 0,
+                    "y": 31
+                },
+                "id": 25,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": [
+                        {
+                            "desc": true,
+                            "displayName": "batch_num"
+                        }
+                    ]
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT block_num, tx_hash, contract_address, effective_gas_price, status, cumulative_gas_used, gas_used\nFROM state.receipt\nORDER BY block_num DESC\nLIMIT 100",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "State DB - receipt",
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "orange",
+                                    "value": 70
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 85
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 5,
+                    "w": 3,
+                    "x": 9,
+                    "y": 35
+                },
+                "id": 2,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "area",
+                    "justifyMode": "auto",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT block_num, received_at\nFROM state.block\nORDER BY block_num DESC\nLIMIT 1",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "Recent L1 Block synced by Synchronizer",
+                "type": "stat"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "inspect": false
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "orange",
+                                    "value": 70
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 85
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "block_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 105
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "uncles"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 85
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "batch_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 119
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "created_at"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 187
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "received_at"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 172
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 7,
+                    "w": 9,
+                    "x": 0,
+                    "y": 38
+                },
+                "id": 24,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": [
+                        {
+                            "desc": true,
+                            "displayName": "batch_num"
+                        }
+                    ]
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT *\nFROM state.transaction\nORDER BY  l2_block_num DESC\nLIMIT 100",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "State DB - transaction Table",
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "orange",
+                                    "value": 70
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 85
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 6,
+                    "w": 11,
+                    "x": 12,
+                    "y": 39
+                },
+                "id": 7,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT\n  date_trunc('minute', generated_time) AS minute,\n  COUNT(*) AS row_count\nFROM\n  generate_series(\n    (SELECT MIN(created_at) FROM monitored_txs),\n    (SELECT MAX(created_at) FROM monitored_txs),\n    '1 minute'\n  )\n  AS generated_time\nLEFT JOIN\n  monitored_txs ON generated_time \u003c= created_at AND created_at \u003c generated_time + interval '1 minute'\nGROUP BY\n  1\nORDER BY\n  1 DESC;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "1분 동안 생성된 monitored_txs 개수",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "orange",
+                                    "value": 70
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 85
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 5,
+                    "w": 3,
+                    "x": 9,
+                    "y": 40
+                },
+                "id": 28,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "area",
+                    "justifyMode": "auto",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT block_num\nFROM state.monitored_txs_history\nORDER BY nonce DESC , updated_at DESC\nLIMIT 1",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "Recent L1 Block Which Has Monitored Tx ",
+                "type": "stat"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "inspect": false
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "updated_at"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 178
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "owner"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 99
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "nonce"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 79
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "value"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 81
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "gas"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 82
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "gas_price"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 92
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "status"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 94
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "block_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 97
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "id"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 249
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "created_at"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 180
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "valid_from"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 173
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "to_addr"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 256
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "from_addr"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 267
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "history"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 222
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 10,
+                    "w": 22,
+                    "x": 0,
+                    "y": 45
+                },
+                "id": 16,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": []
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT updated_at, owner, id, status, history, block_num, from_addr, to_addr, created_at, valid_from, valid_to\nFROM state.monitored_txs_history\nORDER BY nonce DESC , updated_at DESC\nLIMIT 100",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "State DB - monitored_txs_history table",
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "inspect": false
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "orange",
+                                    "value": 70
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 85
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "batch_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 91
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "block_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 97
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 10,
+                    "w": 12,
+                    "x": 0,
+                    "y": 55
+                },
+                "id": 15,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": [
+                        {
+                            "desc": true,
+                            "displayName": "batch_num"
+                        }
+                    ]
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT *\nFROM state.virtual_batch\nORDER BY batch_num DESC\nLIMIT 100",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "State DB - virtual_batch Table",
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "inspect": false
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "orange",
+                                    "value": 70
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 85
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "batch_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 112
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "state_root"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 273
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "aggregator"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 210
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "block_num"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 114
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 10,
+                    "w": 11,
+                    "x": 12,
+                    "y": 55
+                },
+                "id": 14,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": [
+                        {
+                            "desc": true,
+                            "displayName": "batch_num"
+                        }
+                    ]
+                },
+                "pluginVersion": "10.3.0-64399",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "fc44575a-8629-4b4a-b9ea-420f47aef51b"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT *\nFROM state.verified_batch\nORDER BY batch_num DESC\nLIMIT 100",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "State DB - verified_batch Table",
+                "type": "table"
+            }
+        ],
+        "refresh": "",
+        "schemaVersion": 39,
+        "tags": [
+            "Polygon",
+            "CDK"
+        ],
+        "templating": {
+            "list": []
+        },
+        "time": {
+            "from": "now-3h",
+            "to": "now"
+        },
+        "timeRangeUpdatedDuringEditOrView": false,
+        "timepicker": {},
+        "timezone": "",
+        "title": "Polygon_CDK_DB",
+        "uid": "awd-a0swd09w09a-dada",
+        "version": 2,
+        "weekStart": ""
+    }
+}

@@ -1,0 +1,2115 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "8-loki-test-test-dashboard",
+        "url": "/d/ad0a7624-8a3a-4168-a66b-c6fdfb67f7eb/8-loki-test-test-dashboard",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2023-05-22T01:28:47Z",
+        "updated": "2023-12-19T06:37:46Z",
+        "updatedBy": "Anonymous",
+        "createdBy": "Anonymous",
+        "version": 135,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 84,
+        "folderUid": "cqwi9Ht4z",
+        "folderTitle": "z. Playground 🧪👨🏻‍💻",
+        "folderUrl": "/dashboards/f/cqwi9Ht4z/57313307-4437-5342-8a14-9c95455930da",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": 197,
+        "links": [],
+        "liveNow": false,
+        "panels": [
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 100,
+                            "gradientMode": "hue",
+                            "hideFrom": {
+                                "graph": false,
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "smooth",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "decbytes"
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Bytes sent"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "light-blue",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "appfelstrudel"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "yellow",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 8,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 31,
+                "maxDataPoints": 50,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "8.0.0-beta3",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "avg by (host) (sum_over_time({chain=~\"$chain\", network=~\"$network\", region=~\"$region\", job=~\"$job\", filename=~\"$filename\"} | json | status=200 | args= \"apikey=N2RWg3zFiX5Eqq38vokbN3xD3uxIrBR4\" | unwrap body_bytes_sent |  __error__=\"\" [$__interval]))",
+                        "legendFormat": "Bytes sent",
+                        "queryType": "range",
+                        "refId": "A"
+                    }
+                ],
+                "title": "Bytes Sent (avg)",
+                "transformations": [],
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 100,
+                            "gradientMode": "hue",
+                            "hideFrom": {
+                                "graph": false,
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "smooth",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "decbytes"
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Bytes sent"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "light-blue",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "appfelstrudel"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "yellow",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 8,
+                    "x": 8,
+                    "y": 0
+                },
+                "id": 33,
+                "maxDataPoints": 50,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "8.0.0-beta3",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "loki",
+                            "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                        },
+                        "editorMode": "code",
+                        "expr": "avg by (host) (sum_over_time({job=\"test\"} | json | unwrap body_bytes_sent |  __error__=\"\" [$__interval]))",
+                        "legendFormat": "Bytes sent",
+                        "queryType": "range",
+                        "refId": "A"
+                    }
+                ],
+                "title": "Bytes Sent (avg)",
+                "transformations": [],
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                },
+                "description": "",
+                "gridPos": {
+                    "h": 9,
+                    "w": 8,
+                    "x": 16,
+                    "y": 0
+                },
+                "id": 34,
+                "maxDataPoints": 50,
+                "options": {
+                    "dedupStrategy": "none",
+                    "enableLogDetails": true,
+                    "prettifyLogMessage": false,
+                    "showCommonLabels": false,
+                    "showLabels": false,
+                    "showTime": false,
+                    "sortOrder": "Descending",
+                    "wrapLogMessage": false
+                },
+                "pluginVersion": "8.0.0-beta3",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "loki",
+                            "uid": "d81e2a25-d86d-4209-8f21-9089dad6b5a8"
+                        },
+                        "editorMode": "code",
+                        "expr": "{job=\"test\"} | json ",
+                        "legendFormat": "Bytes sent",
+                        "queryType": "range",
+                        "refId": "A"
+                    }
+                ],
+                "title": "Bytes Sent (avg)",
+                "transformations": [],
+                "type": "logs"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 100,
+                            "gradientMode": "hue",
+                            "hideFrom": {
+                                "graph": false,
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "smooth",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "decbytes"
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Bytes sent"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "light-blue",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "appfelstrudel"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "yellow",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 8,
+                    "x": 0,
+                    "y": 9
+                },
+                "id": 32,
+                "maxDataPoints": 50,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "8.0.0-beta3",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "sum by (host) (sum_over_time({chain=~\"$chain\", network=~\"$network\", region=~\"$region\", job=~\"$job\", filename=~\"$filename\"} | json | status=200 | args= \"apikey=N2RWg3zFiX5Eqq38vokbN3xD3uxIrBR4\" | unwrap body_bytes_sent |  __error__=\"\" [$__interval]))",
+                        "legendFormat": "Bytes sent",
+                        "queryType": "range",
+                        "refId": "A"
+                    }
+                ],
+                "title": "Bytes Sent (sum)",
+                "transformations": [],
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "filterable": false,
+                            "inspect": false
+                        },
+                        "mappings": [
+                            {
+                                "options": {
+                                    "NL": {
+                                        "index": 1,
+                                        "text": "🇳🇱"
+                                    },
+                                    "US": {
+                                        "index": 0,
+                                        "text": "🇺🇸"
+                                    }
+                                },
+                                "type": "value"
+                            }
+                        ],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Requests"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 300
+                                },
+                                {
+                                    "id": "custom.cellOptions",
+                                    "value": {
+                                        "mode": "gradient",
+                                        "type": "gauge"
+                                    }
+                                },
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "mode": "continuous-BlPu"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Country"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 74
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 8,
+                    "y": 9
+                },
+                "id": 25,
+                "maxDataPoints": 1,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": [
+                        {
+                            "desc": true,
+                            "displayName": "Requests"
+                        }
+                    ]
+                },
+                "pluginVersion": "10.3.0-64167",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "topk(10, sum by (method) (count_over_time({chain=~\"$chain\", network=~\"$network\", region=~\"$region\", job=~\"$job\", filename=~\"$filename\"} | json | line_format \"{{.request_body}}, args: {{.args}}, msec : {{.msec}}, status : {{.status}}\" | json |  __error__=\"\" [$__interval])))",
+                        "instant": true,
+                        "legendFormat": "{{remote_addr}}",
+                        "queryType": "instant",
+                        "range": false,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Top 10 method",
+                "transformations": [
+                    {
+                        "id": "organize",
+                        "options": {
+                            "excludeByName": {
+                                "Field": false,
+                                "Time": true
+                            },
+                            "indexByName": {
+                                "Time": 0,
+                                "Value #A": 2,
+                                "method": 1
+                            },
+                            "renameByName": {
+                                "Field": "IP Address",
+                                "Total": "Requests",
+                                "Value #A": "Requests",
+                                "geoip_country_code": "Country",
+                                "remote_addr": "IP Address "
+                            }
+                        }
+                    }
+                ],
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "filterable": false,
+                            "inspect": false
+                        },
+                        "mappings": [
+                            {
+                                "options": {
+                                    "NL": {
+                                        "index": 1,
+                                        "text": "🇳🇱"
+                                    },
+                                    "US": {
+                                        "index": 0,
+                                        "text": "🇺🇸"
+                                    }
+                                },
+                                "type": "value"
+                            }
+                        ],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Requests"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 300
+                                },
+                                {
+                                    "id": "custom.cellOptions",
+                                    "value": {
+                                        "mode": "gradient",
+                                        "type": "gauge"
+                                    }
+                                },
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "mode": "continuous-BlPu"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Country"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 74
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 16,
+                    "y": 9
+                },
+                "id": 26,
+                "maxDataPoints": 1,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": [
+                        {
+                            "desc": true,
+                            "displayName": "Requests"
+                        }
+                    ]
+                },
+                "pluginVersion": "10.3.0-64167",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "topk(10, sum by (args) (count_over_time({chain=~\"$chain\", network=~\"$network\", region=~\"$region\", job=~\"$job\", filename=~\"$filename\"} | json | line_format \"{{.request_body}}, args: {{.args}}, msec : {{.msec}}\" | status=200 | json |  __error__=\"\" [$__interval])))",
+                        "instant": true,
+                        "legendFormat": "{{remote_addr}}",
+                        "queryType": "instant",
+                        "range": false,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Top 10 api key",
+                "transformations": [
+                    {
+                        "id": "organize",
+                        "options": {
+                            "excludeByName": {
+                                "Field": false,
+                                "Time": true
+                            },
+                            "indexByName": {
+                                "Time": 0,
+                                "Value #A": 2,
+                                "args": 1
+                            },
+                            "renameByName": {
+                                "Field": "IP Address",
+                                "Total": "Requests",
+                                "Value #A": "Requests",
+                                "args": "Apikey",
+                                "geoip_country_code": "Country",
+                                "remote_addr": "IP Address "
+                            }
+                        }
+                    }
+                ],
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "filterable": false,
+                            "inspect": false
+                        },
+                        "mappings": [
+                            {
+                                "options": {
+                                    "NL": {
+                                        "index": 1,
+                                        "text": "🇳🇱"
+                                    },
+                                    "US": {
+                                        "index": 0,
+                                        "text": "🇺🇸"
+                                    }
+                                },
+                                "type": "value"
+                            }
+                        ],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Requests"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 300
+                                },
+                                {
+                                    "id": "custom.cellOptions",
+                                    "value": {
+                                        "mode": "gradient",
+                                        "type": "gauge"
+                                    }
+                                },
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "mode": "continuous-BlPu"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "IP Address "
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 150
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "method"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 300
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 16,
+                    "w": 14,
+                    "x": 10,
+                    "y": 17
+                },
+                "id": 28,
+                "maxDataPoints": 1,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": [
+                        {
+                            "desc": true,
+                            "displayName": "Requests"
+                        }
+                    ]
+                },
+                "pluginVersion": "10.0.2-cloud.1.94a6f396",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "topk(10, sum by (remote_addr, method, args) (count_over_time({chain=~\"$chain\", network=~\"$network\", region=~\"$region\", job=~\"$job\", filename=~\"$filename\"} | json | line_format \"{{.request_body}}, args: {{.args}}, msec : {{.msec}}, status : {{.status}}\" | json |  __error__=\"\" [$__interval])))",
+                        "instant": true,
+                        "legendFormat": "{{remote_addr}}",
+                        "queryType": "instant",
+                        "range": false,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Top 10 api key, ip, method",
+                "transformations": [
+                    {
+                        "id": "organize",
+                        "options": {
+                            "excludeByName": {
+                                "Field": false,
+                                "Time": true
+                            },
+                            "indexByName": {
+                                "Time": 0,
+                                "Value #A": 4,
+                                "args": 1,
+                                "method": 3,
+                                "remote_addr": 2
+                            },
+                            "renameByName": {
+                                "Field": "IP Address",
+                                "Total": "Requests",
+                                "Value #A": "Requests",
+                                "args": "Apikey",
+                                "geoip_country_code": "Country",
+                                "remote_addr": "IP Address "
+                            }
+                        }
+                    }
+                ],
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "filterable": false,
+                            "inspect": false
+                        },
+                        "mappings": [
+                            {
+                                "options": {
+                                    "NL": {
+                                        "index": 1,
+                                        "text": "🇳🇱"
+                                    },
+                                    "US": {
+                                        "index": 0,
+                                        "text": "🇺🇸"
+                                    }
+                                },
+                                "type": "value"
+                            }
+                        ],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Requests"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 300
+                                },
+                                {
+                                    "id": "custom.cellOptions",
+                                    "value": {
+                                        "mode": "gradient",
+                                        "type": "gauge"
+                                    }
+                                },
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "mode": "continuous-BlPu"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Country"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 74
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 0,
+                    "y": 18
+                },
+                "id": 24,
+                "maxDataPoints": 1,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": [
+                        {
+                            "desc": true,
+                            "displayName": "Requests"
+                        }
+                    ]
+                },
+                "pluginVersion": "10.0.2-cloud.1.94a6f396",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "topk(10, sum by (remote_addr) (count_over_time({chain=~\"$chain\", network=~\"$network\", region=~\"$region\", job=~\"$job\", filename=~\"$filename\"} | json |  __error__=\"\" [$__interval])))",
+                        "instant": true,
+                        "legendFormat": "{{remote_addr}}",
+                        "queryType": "instant",
+                        "range": false,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Top 10 visitor IPs",
+                "transformations": [
+                    {
+                        "id": "organize",
+                        "options": {
+                            "excludeByName": {
+                                "Field": false,
+                                "Time": true
+                            },
+                            "indexByName": {
+                                "Time": 0,
+                                "Value #A": 3,
+                                "geoip_country_code": 2,
+                                "remote_addr": 1
+                            },
+                            "renameByName": {
+                                "Field": "IP Address",
+                                "Total": "Requests",
+                                "Value #A": "Requests",
+                                "geoip_country_code": "Country",
+                                "remote_addr": "IP Address "
+                            }
+                        }
+                    }
+                ],
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "filterable": false,
+                            "inspect": false
+                        },
+                        "mappings": [
+                            {
+                                "options": {
+                                    "NL": {
+                                        "index": 1,
+                                        "text": "🇳🇱"
+                                    },
+                                    "US": {
+                                        "index": 0,
+                                        "text": "🇺🇸"
+                                    }
+                                },
+                                "type": "value"
+                            }
+                        ],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Requests"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 250
+                                },
+                                {
+                                    "id": "custom.cellOptions",
+                                    "value": {
+                                        "mode": "gradient",
+                                        "type": "gauge"
+                                    }
+                                },
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "mode": "continuous-BlPu"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Apikey"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 300
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 10,
+                    "x": 0,
+                    "y": 26
+                },
+                "id": 27,
+                "maxDataPoints": 1,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": [
+                        {
+                            "desc": true,
+                            "displayName": "Requests"
+                        }
+                    ]
+                },
+                "pluginVersion": "10.0.1-cloud.3.f250259e",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "topk(10, sum by (args, method) (count_over_time({chain=~\"$chain\", network=~\"$network\", region=~\"$region\", job=~\"$job\", filename=~\"$filename\"} | json | line_format \"{{.request_body}}, args: {{.args}}, msec : {{.msec}}, status : {{.status}}\" | json |  __error__=\"\" [$__interval])))",
+                        "instant": true,
+                        "legendFormat": "{{remote_addr}}",
+                        "queryType": "instant",
+                        "range": false,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Top 10 api key, method",
+                "transformations": [
+                    {
+                        "id": "organize",
+                        "options": {
+                            "excludeByName": {
+                                "Field": false,
+                                "Time": true
+                            },
+                            "indexByName": {
+                                "Time": 0,
+                                "Value #A": 3,
+                                "args": 1,
+                                "method": 2
+                            },
+                            "renameByName": {
+                                "Field": "IP Address",
+                                "Total": "Requests",
+                                "Value #A": "Requests",
+                                "args": "Apikey",
+                                "geoip_country_code": "Country",
+                                "remote_addr": "IP Address "
+                            }
+                        }
+                    }
+                ],
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "rgba(110, 157, 228, 0.76)"
+                                },
+                                {
+                                    "color": "rgba(73, 124, 202, 1)",
+                                    "value": 20
+                                }
+                            ]
+                        },
+                        "unit": "short"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 7,
+                    "x": 10,
+                    "y": 33
+                },
+                "id": 2,
+                "maxDataPoints": 100,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "10.0.0-cloud.3.b04cc88b",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "sum by (status) (count_over_time({chain=~\"$chain\", network=~\"$network\", region=~\"$region\", job=~\"$job\", filename=~\"$filename\"} | json |  __error__=\"\" [$__interval]))",
+                        "instant": false,
+                        "legendFormat": "HTTP Status: {{status}}",
+                        "queryType": "range",
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Requests per status code",
+                "transformations": [],
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 39,
+                            "gradientMode": "hue",
+                            "hideFrom": {
+                                "graph": false,
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "lineInterpolation": "smooth",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "log": 2,
+                                "type": "log"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": true,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "decimals": 0,
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "short"
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "HTTP Status 500"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "dark-orange",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "{statuscode=\"200\"} 200"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "green",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "{statuscode=\"404\"} 404"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "semi-dark-purple",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "{statuscode=\"500\"} 500"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "dark-red",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "HTTP Status 404"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "light-orange",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "HTTP Status 301"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "light-blue",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "HTTP Status 200"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "semi-dark-blue",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 7,
+                    "x": 17,
+                    "y": 33
+                },
+                "id": 18,
+                "maxDataPoints": 100,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "8.0.0-beta3",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "expr": "sum by (status) (count_over_time({chain=~\"$chain\", network=~\"$network\", region=~\"$region\", job=~\"$job\", filename=~\"$filename\"} | json |  __error__=\"\" [$__interval]))",
+                        "legendFormat": "HTTP Status {{status}}",
+                        "refId": "A"
+                    }
+                ],
+                "title": "HTTP status codes over time",
+                "transformations": [
+                    {
+                        "id": "filterFieldsByName",
+                        "options": {
+                            "include": {
+                                "names": [
+                                    "Time",
+                                    "HTTP Status 200",
+                                    "HTTP Status 301",
+                                    "HTTP Status 304",
+                                    "HTTP Status 404",
+                                    "HTTP Status 406",
+                                    "HTTP Status 500"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "filterable": false,
+                            "inspect": false
+                        },
+                        "mappings": [
+                            {
+                                "options": {
+                                    "NL": {
+                                        "index": 1,
+                                        "text": "🇳🇱"
+                                    },
+                                    "US": {
+                                        "index": 0,
+                                        "text": "🇺🇸"
+                                    }
+                                },
+                                "type": "value"
+                            }
+                        ],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Requests"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 250
+                                },
+                                {
+                                    "id": "custom.cellOptions",
+                                    "value": {
+                                        "mode": "gradient",
+                                        "type": "gauge"
+                                    }
+                                },
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "mode": "continuous-BlPu"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "Apikey"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.width",
+                                    "value": 300
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 10,
+                    "x": 0,
+                    "y": 34
+                },
+                "id": 29,
+                "maxDataPoints": 1,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true,
+                    "sortBy": [
+                        {
+                            "desc": true,
+                            "displayName": "Requests"
+                        }
+                    ]
+                },
+                "pluginVersion": "10.0.1-cloud.3.f250259e",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "topk(10, sum by (remote_addr, method) (count_over_time({chain=~\"$chain\", network=~\"$network\", region=~\"$region\", job=~\"$job\", filename=~\"$filename\"} | json | line_format \"{{.request_body}}, args: {{.args}}, msec : {{.msec}}, status : {{.status}}\" | json |  __error__=\"\" [$__interval])))",
+                        "instant": true,
+                        "legendFormat": "{{remote_addr}}",
+                        "queryType": "instant",
+                        "range": false,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Top 10 ip, method",
+                "transformations": [
+                    {
+                        "id": "organize",
+                        "options": {
+                            "excludeByName": {
+                                "Field": false,
+                                "Time": true
+                            },
+                            "indexByName": {
+                                "Time": 0,
+                                "Value #A": 3,
+                                "method": 2,
+                                "remote_addr": 1
+                            },
+                            "renameByName": {
+                                "Field": "IP Address",
+                                "Total": "Requests",
+                                "Value #A": "Requests",
+                                "args": "Apikey",
+                                "geoip_country_code": "Country",
+                                "remote_addr": "IP Address "
+                            }
+                        }
+                    }
+                ],
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 100,
+                            "gradientMode": "hue",
+                            "hideFrom": {
+                                "graph": false,
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "lineInterpolation": "smooth",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "log": 2,
+                                "type": "log"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "#EAB839",
+                                    "value": 0.2
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 0.3
+                                }
+                            ]
+                        },
+                        "unit": "s"
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "95th percentile"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "blue",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "max latency"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "super-light-blue",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "max latency"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.fillOpacity",
+                                    "value": 30
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 8,
+                    "x": 0,
+                    "y": 42
+                },
+                "id": 22,
+                "maxDataPoints": 50,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "8.0.0-beta3",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "expr": "quantile_over_time(0.95,{chain=~\"$chain\", network=~\"$network\", region=~\"$region\", job=~\"$job\", filename=~\"$filename\"} | json | unwrap request_time |  __error__=\"\"  [$__interval]) by (host)",
+                        "legendFormat": "95th percentile",
+                        "refId": "C"
+                    },
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "expr": "max by (host) (max_over_time({chain=~\"$chain\", network=~\"$network\", region=~\"$region\", job=~\"$job\", filename=~\"$filename\"} | json | unwrap request_time |  __error__=\"\"  [$__interval]))",
+                        "legendFormat": "max latency",
+                        "refId": "D"
+                    }
+                ],
+                "title": "95th percentile of Request Time",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "purple"
+                                }
+                            ]
+                        },
+                        "unit": "decbytes"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 4,
+                    "w": 3,
+                    "x": 8,
+                    "y": 42
+                },
+                "id": 7,
+                "maxDataPoints": 1,
+                "options": {
+                    "colorMode": "background",
+                    "graphMode": "none",
+                    "justifyMode": "center",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "sum"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "text": {},
+                    "textMode": "value"
+                },
+                "pluginVersion": "10.0.1-cloud.2.a7a20fbf",
+                "targets": [
+                    {
+                        "datasource": {
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "expr": "sum by (host) (sum_over_time({chain=~\"$chain\", network=~\"$network\", region=~\"$region\", job=~\"$job\", filename=~\"$filename\"} | json | unwrap body_bytes_sent |  __error__=\"\" [$__interval]))",
+                        "instant": true,
+                        "legendFormat": "Bytes sent",
+                        "range": false,
+                        "refId": "A"
+                    }
+                ],
+                "title": "Total Bytes Sent",
+                "transformations": [],
+                "type": "stat"
+            }
+        ],
+        "refresh": "",
+        "schemaVersion": 39,
+        "tags": [
+            "playground"
+        ],
+        "templating": {
+            "list": [
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "SUI",
+                        "value": "SUI"
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values(chain)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "chain",
+                    "options": [],
+                    "query": "label_values(chain)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "mainnet",
+                        "value": "mainnet"
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values({chain=~\"$chain\"},network)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "network",
+                    "options": [],
+                    "query": "label_values({chain=~\"$chain\"},network)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "germany",
+                        "value": "germany"
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values({chain=~\"$chain\", network=~\"$network\"}, region)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "region",
+                    "options": [],
+                    "query": "label_values({chain=~\"$chain\", network=~\"$network\"}, region)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "ext-prod-SUI-mainnet-fullnode",
+                        "value": "ext-prod-SUI-mainnet-fullnode"
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values({chain=~\"$chain\", network=~\"$network\", region=~\"$region\"}, job)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "job",
+                    "options": [],
+                    "query": "label_values({chain=~\"$chain\", network=~\"$network\", region=~\"$region\"}, job)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "/home/ubuntu/kong/log/access-proxy.log",
+                        "value": "/home/ubuntu/kong/log/access-proxy.log"
+                    },
+                    "datasource": {
+                        "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                    },
+                    "definition": "label_values(filename)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "filename",
+                    "options": [],
+                    "query": "label_values(filename)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 1,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                }
+            ]
+        },
+        "time": {
+            "from": "now-1h",
+            "to": "now"
+        },
+        "timepicker": {},
+        "timezone": "",
+        "title": "\bLoki - [TEST] test dashboard",
+        "uid": "ad0a7624-8a3a-4168-a66b-c6fdfb67f7eb",
+        "version": 135,
+        "weekStart": ""
+    }
+}

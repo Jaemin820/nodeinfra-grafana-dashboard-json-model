@@ -1,0 +1,605 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "aptos-fullnode-mempool",
+        "url": "/d/awdawd-awdavabv-asdawdw-123w13/aptos-fullnode-mempool",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2024-04-03T07:59:41Z",
+        "updated": "2024-04-03T08:01:40Z",
+        "updatedBy": "jaemin1",
+        "createdBy": "jaemin1",
+        "version": 2,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 308,
+        "folderUid": "ddembnce5djb4f",
+        "folderTitle": "🔘 P3 ➖",
+        "folderUrl": "/dashboards/f/ddembnce5djb4f/f09f9498-p3-e29e96",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": 374,
+        "links": [],
+        "liveNow": false,
+        "panels": [
+            {
+                "collapsed": false,
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 4,
+                "panels": [],
+                "title": "Mempool Overview",
+                "type": "row"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "Size of a core mempool index",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "fixedColor": "blue",
+                            "mode": "fixed"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 33,
+                            "gradientMode": "opacity",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "decimals": 1,
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "mempool failed txns/sec"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "yellow",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 24,
+                    "x": 0,
+                    "y": 1
+                },
+                "id": 9,
+                "options": {
+                    "legend": {
+                        "calcs": [
+                            "min",
+                            "mean",
+                            "max"
+                        ],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": false
+                    },
+                    "tooltip": {
+                        "maxHeight": 600,
+                        "mode": "multi",
+                        "sort": "desc"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "aptos_core_mempool_index_size{chain=\"APT\", servicetype=\"indexer_fullnode\"}",
+                        "hide": false,
+                        "legendFormat": "[{{index}}] {{network}} {{region}} {{instance}}",
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "mempool index size",
+                "type": "timeseries"
+            },
+            {
+                "collapsed": true,
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 9
+                },
+                "id": 11,
+                "panels": [],
+                "title": "Mempool [$network] [$region]",
+                "type": "row"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "Size of a core mempool index",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "fixedColor": "blue",
+                            "mode": "fixed"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 33,
+                            "gradientMode": "opacity",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "decimals": 1,
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byName",
+                                "options": "mempool failed txns/sec"
+                            },
+                            "properties": [
+                                {
+                                    "id": "color",
+                                    "value": {
+                                        "fixedColor": "yellow",
+                                        "mode": "fixed"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 24,
+                    "x": 0,
+                    "y": 10
+                },
+                "id": 10,
+                "options": {
+                    "legend": {
+                        "calcs": [
+                            "min",
+                            "mean",
+                            "max"
+                        ],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": false
+                    },
+                    "tooltip": {
+                        "maxHeight": 600,
+                        "mode": "multi",
+                        "sort": "desc"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "aptos_core_mempool_index_size{chain=~\"$chain\", network=~\"$network\", servicetype=~\"$servicetype\", region=~\"$region\"}",
+                        "hide": false,
+                        "legendFormat": "{{index}}",
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "title": "mempool index size",
+                "type": "timeseries"
+            }
+        ],
+        "refresh": "",
+        "schemaVersion": 39,
+        "tags": [
+            "Aptos",
+            "Fullnode"
+        ],
+        "templating": {
+            "list": [
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "APT",
+                        "value": "APT"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{chain=~\"APT\"}, chain)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "chain",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{chain=~\"APT\"}, chain)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "mainnet",
+                        "value": "mainnet"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{chain=~\"$chain\"}, network)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "network",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{chain=~\"$chain\"}, network)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "indexer_fullnode",
+                        "value": "indexer_fullnode"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{chain=~\"$chain\", network=~\"$network\"}, servicetype)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "servicetype",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{chain=~\"$chain\", network=~\"$network\"}, servicetype)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "roubaix",
+                        "value": "roubaix"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(up{chain=~\"$chain\", network=~\"$network\", servicetype=~\"$servicetype\"}, region)",
+                    "description": "",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "region",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(up{chain=~\"$chain\", network=~\"$network\",servicetype=~\"$servicetype\"}, region)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "51.210.3.155",
+                        "value": "51.210.3.155"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(up{chain=~\"$chain\", network=~\"$network\", servicetype=~\"$servicetype\", region=~\"$region\"}, instance)",
+                    "description": "",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "instance",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(up{chain=~\"$chain\", network=~\"$network\",servicetype=~\"$servicetype\", region=~\"$region\"}, instance)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "/^(?\u003cvalue\u003e.+):[0-9].+$/",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                },
+                {
+                    "auto": false,
+                    "auto_count": 100,
+                    "auto_min": "10s",
+                    "current": {
+                        "selected": false,
+                        "text": "1m",
+                        "value": "1m"
+                    },
+                    "hide": 0,
+                    "label": "Interval",
+                    "name": "interval",
+                    "options": [
+                        {
+                            "selected": false,
+                            "text": "30s",
+                            "value": "30s"
+                        },
+                        {
+                            "selected": true,
+                            "text": "1m",
+                            "value": "1m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "2m",
+                            "value": "2m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "3m",
+                            "value": "3m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "5m",
+                            "value": "5m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "10m",
+                            "value": "10m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "30m",
+                            "value": "30m"
+                        }
+                    ],
+                    "query": "30s,1m,2m,3m,5m,10m,30m",
+                    "queryValue": "",
+                    "refresh": 2,
+                    "skipUrlSync": false,
+                    "type": "interval"
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "00000000",
+                        "value": "00000000"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(aptos_connections{direction=\"inbound\"},peer_id)",
+                    "hide": 2,
+                    "includeAll": false,
+                    "label": "nodeID",
+                    "multi": false,
+                    "name": "nodeID",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(aptos_connections{direction=\"inbound\"},peer_id)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                },
+                {
+                    "current": {
+                        "isNone": true,
+                        "selected": false,
+                        "text": "None",
+                        "value": ""
+                    },
+                    "datasource": {
+                        "type": "yesoreyeram-infinity-datasource",
+                        "uid": "nIVhnOS4z"
+                    },
+                    "definition": "Infinity- (legacy) CollectionLookup(mainnet,mainnet.aptoslabs.com,llt,testnet.aptoslabs.com,$chain)",
+                    "hide": 2,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "chainAPI",
+                    "options": [],
+                    "query": {
+                        "infinityQuery": {
+                            "columns": [],
+                            "filters": [],
+                            "format": "table",
+                            "refId": "variable",
+                            "root_selector": "",
+                            "source": "url",
+                            "type": "json",
+                            "url": "https://jsonplaceholder.typicode.com/users",
+                            "url_options": {
+                                "data": "",
+                                "method": "GET"
+                            }
+                        },
+                        "query": "CollectionLookup(mainnet,mainnet.aptoslabs.com,llt,testnet.aptoslabs.com,$chain)",
+                        "queryType": "legacy"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                }
+            ]
+        },
+        "time": {
+            "from": "now-6h",
+            "to": "now"
+        },
+        "timeRangeUpdatedDuringEditOrView": false,
+        "timepicker": {},
+        "timezone": "",
+        "title": "Aptos_Fullnode_Mempool",
+        "uid": "awdawd-awdavabv-asdawdw-123w13",
+        "version": 2,
+        "weekStart": ""
+    }
+}

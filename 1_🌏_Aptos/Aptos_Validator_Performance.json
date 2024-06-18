@@ -1,0 +1,3809 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "aptos-validator-performance",
+        "url": "/d/execution1/aptos-validator-performance",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2023-04-18T09:12:39Z",
+        "updated": "2024-04-12T04:58:34Z",
+        "updatedBy": "jaemin1",
+        "createdBy": "Anonymous",
+        "version": 8,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 172,
+        "folderUid": "edb18659-89b7-476b-a6d4-578b628a61ef",
+        "folderTitle": "1 🌏 Aptos",
+        "folderUrl": "/dashboards/f/edb18659-89b7-476b-a6d4-578b628a61ef/1-f09f8c8f-aptos",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "target": {
+                        "limit": 100,
+                        "matchAny": false,
+                        "tags": [],
+                        "type": "dashboard"
+                    },
+                    "type": "dashboard"
+                },
+                {
+                    "datasource": {
+                        "type": "datasource",
+                        "uid": "grafana"
+                    },
+                    "enable": true,
+                    "expr": "",
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "iconSize": 0,
+                    "lineColor": "",
+                    "name": "Annotations \u0026 Alerts",
+                    "query": "",
+                    "showLine": false,
+                    "step": "",
+                    "tagKeys": "",
+                    "tagsField": "",
+                    "target": {
+                        "limit": 100,
+                        "matchAny": false,
+                        "tags": [],
+                        "type": "dashboard"
+                    },
+                    "textField": "",
+                    "textFormat": "",
+                    "titleFormat": "",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 1,
+        "id": 179,
+        "links": [
+            {
+                "asDropdown": true,
+                "icon": "external link",
+                "includeVars": true,
+                "keepTime": true,
+                "tags": [
+                    "aptos-core"
+                ],
+                "targetBlank": true,
+                "title": "aptos-core",
+                "type": "dashboards"
+            }
+        ],
+        "liveNow": false,
+        "panels": [
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "s"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 24,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 34,
+                "options": {
+                    "legend": {
+                        "calcs": [
+                            "last",
+                            "mean",
+                            "max"
+                        ],
+                        "displayMode": "table",
+                        "placement": "right",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "multi",
+                        "sort": "desc"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "rate(aptos_executor_other_timers_seconds_sum{job=~\"$job\"}[1m]) / rate(aptos_executor_other_timers_seconds_count{job=~\"$job\"}[1m])",
+                        "legendFormat": "{{name}} {{kubernetes_pod_name}}",
+                        "range": true,
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "rate(aptos_executor_vm_execute_block_seconds_sum{job=~\"$job\"}[1m]) / rate(aptos_executor_vm_execute_block_seconds_count{job=~\"$job\"}[1m])",
+                        "hide": false,
+                        "legendFormat": "_vm_execute {{kubernetes_pod_name}}",
+                        "range": true,
+                        "refId": "B"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "rate(aptos_executor_execute_block_seconds_sum{job=~\"$job\"}[1m]) / rate(aptos_executor_execute_block_seconds_count{job=~\"$job\"}[1m])",
+                        "hide": false,
+                        "legendFormat": "_execute_block {{kubernetes_pod_name}}",
+                        "range": true,
+                        "refId": "C"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "rate(aptos_executor_commit_blocks_seconds_sum{job=~\"$job\"}[1m]) / rate(aptos_executor_commit_blocks_seconds_count{job=~\"$job\"}[1m])",
+                        "hide": false,
+                        "legendFormat": "_commit_block {{kubernetes_pod_name}}",
+                        "range": true,
+                        "refId": "D"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "(rate(aptos_executor_execute_block_seconds_sum{job=~\"$job\"}[1m]) - rate(aptos_executor_vm_execute_block_seconds_sum{job=~\"$job\"}[1m]) )/ rate(aptos_executor_vm_execute_block_seconds_count{job=~\"$job\"}[1m])",
+                        "hide": false,
+                        "legendFormat": "_non_vm_execute {{kubernetes_pod_name}}",
+                        "range": true,
+                        "refId": "E"
+                    }
+                ],
+                "title": "Details",
+                "type": "timeseries"
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent to execute a block",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 0,
+                    "y": 8
+                },
+                "hiddenSeries": false,
+                "id": 39,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "11.1.0-69051",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(consensus_duration_sum{job=~\"$job\"}[$interval]) )",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "block_execution_time",
+                        "range": true,
+                        "refId": "C"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_executor_vm_execute_block_seconds_sum{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "vm_execute",
+                        "range": true,
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_executor_other_timers_seconds_sum{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "apply_to_ledger",
+                        "range": true,
+                        "refId": "D"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_executor_other_timers_seconds_sum{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "as_state_compute_result",
+                        "range": true,
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Block execution time breakdown per second",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "$$hashKey": "object:140",
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "$$hashKey": "object:141",
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent to execute a block",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 8,
+                    "y": 8
+                },
+                "hiddenSeries": false,
+                "id": 40,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "11.1.0-69051",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(consensus_duration_sum{job=~\"$job\"}[$interval]) )",
+                        "format": "time_series",
+                        "hide": true,
+                        "intervalFactor": 1,
+                        "legendFormat": "block_execution_time",
+                        "range": true,
+                        "refId": "C"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_storage_interface_timer_seconds_sum{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "wait_for_proof",
+                        "range": true,
+                        "refId": "D"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_storage_interface_timer_seconds_sum{job=~\"$job\"}[$interval]) /  avg(block_executor_concurrency{job=~\"$job\"}))",
+                        "hide": false,
+                        "legendFormat": "async_proof_fetcher_fetch",
+                        "range": true,
+                        "refId": "E"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_storage_api_latency_seconds_sum{job=~\"$job\"}[$interval]) /  avg(block_executor_concurrency{job=~\"$job\"}) ) ",
+                        "hide": true,
+                        "legendFormat": "get_state_val_api",
+                        "range": true,
+                        "refId": "B"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_storage_interface_timer_seconds_sum{job=~\"$job\"}[$interval]) /  avg(block_executor_concurrency{job=~\"$job\"}) )",
+                        "hide": false,
+                        "legendFormat": "cached_view_get_state_value",
+                        "range": true,
+                        "refId": "F"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Storage read breakdown for execution per second",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "$$hashKey": "object:140",
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "$$hashKey": "object:141",
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 16,
+                    "y": 8
+                },
+                "hiddenSeries": false,
+                "id": 41,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": true,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "11.1.0-69051",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_executor_vm_execute_block_seconds_sum{job=~\"$job\"}[$interval]) )",
+                        "format": "time_series",
+                        "hide": false,
+                        "intervalFactor": 1,
+                        "legendFormat": "vm_execution_time",
+                        "range": true,
+                        "refId": "C"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_execution_dependency_wait_sum{job=~\"$job\"}[$interval]) / avg(block_executor_concurrency{job=~\"$job\"}) ) ",
+                        "hide": false,
+                        "legendFormat": "executor_dependency_wait",
+                        "range": true,
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_execution_vm_init_seconds_sum{job=~\"$job\"}[$interval]) / avg(block_executor_concurrency{job=~\"$job\"}) ) ",
+                        "hide": false,
+                        "legendFormat": "vm_init",
+                        "range": true,
+                        "refId": "B"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_execution_task_validate_seconds_sum{job=~\"$job\"}[$interval]) / avg(block_executor_concurrency{job=~\"$job\"}) ) ",
+                        "hide": false,
+                        "legendFormat": "task_validate",
+                        "range": true,
+                        "refId": "D"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_execution_task_execute_seconds_sum{job=~\"$job\"}[$interval]) / avg(block_executor_concurrency{job=~\"$job\"}) ) ",
+                        "hide": false,
+                        "legendFormat": "task_execute",
+                        "range": true,
+                        "refId": "E"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(block_executor_signature_verification_seconds_sum{job=~\"$job\"}[$interval])) ",
+                        "hide": false,
+                        "legendFormat": "signature_verification",
+                        "range": true,
+                        "refId": "F"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "BlockSTM  time breakdown per second",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "$$hashKey": "object:314",
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "$$hashKey": "object:315",
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent to execute a block",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 0,
+                    "y": 16
+                },
+                "hiddenSeries": false,
+                "id": 42,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": true,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "11.1.0-69051",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(consensus_duration_sum{job=~\"$job\"}[$interval])) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "format": "time_series",
+                        "hide": false,
+                        "intervalFactor": 1,
+                        "legendFormat": "block_execution_time",
+                        "range": true,
+                        "refId": "C"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_executor_vm_execute_block_seconds_sum{job=~\"$job\"}[$interval])) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]))",
+                        "hide": false,
+                        "legendFormat": "vm_execute",
+                        "range": true,
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_executor_other_timers_seconds_sum{job=~\"$job\"}[$interval])) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "apply_to_ledger",
+                        "range": true,
+                        "refId": "D"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_executor_other_timers_seconds_sum{job=~\"$job\"}[$interval]) ) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "as_state_compute_result",
+                        "range": true,
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Block execution time breakdown (per block)",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "$$hashKey": "object:140",
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "$$hashKey": "object:141",
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent to execute a block",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 8,
+                    "y": 16
+                },
+                "hiddenSeries": false,
+                "id": 43,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": true,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "11.1.0-69051",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(consensus_duration_sum{job=~\"$job\"}[$interval]) ) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "format": "time_series",
+                        "hide": true,
+                        "intervalFactor": 1,
+                        "legendFormat": "block_execution_time",
+                        "range": true,
+                        "refId": "C"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_storage_interface_timer_seconds_sum{job=~\"$job\"}[$interval]) ) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "wait_for_proof",
+                        "range": true,
+                        "refId": "D"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_storage_interface_timer_seconds_sum{job=~\"$job\"}[$interval]) /  avg(block_executor_concurrency{job=~\"$job\"})) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "async_proof_fetcher_fetch",
+                        "range": true,
+                        "refId": "E"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_storage_api_latency_seconds_sum{job=~\"$job\"}[$interval]) /  avg(block_executor_concurrency{job=~\"$job\"}) ) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": true,
+                        "legendFormat": "get_state_val_api",
+                        "range": true,
+                        "refId": "B"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_storage_interface_timer_seconds_sum{job=~\"$job\"}[$interval]) /  avg(block_executor_concurrency{job=~\"$job\"}) ) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "cached_view_get_state_value",
+                        "range": true,
+                        "refId": "F"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_storage_interface_timer_seconds_sum{job=~\"$job\"}[$interval]) /  avg(block_executor_concurrency{job=~\"$job\"})) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "schedule_proof_read",
+                        "range": true,
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_execution_get_state_val_sum{job=~\"$job\"}[$interval]) /  avg(block_executor_concurrency{job=~\"$job\"})) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "versioned_view_get_state_val",
+                        "range": true,
+                        "refId": "G"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Storage read breakdown for execution per block",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "$$hashKey": "object:140",
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "$$hashKey": "object:141",
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 16,
+                    "y": 16
+                },
+                "hiddenSeries": false,
+                "id": 44,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": true,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "11.1.0-69051",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_executor_vm_execute_block_seconds_sum{job=~\"$job\"}[$interval]) ) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "format": "time_series",
+                        "hide": false,
+                        "intervalFactor": 1,
+                        "legendFormat": "vm_execution_time",
+                        "range": true,
+                        "refId": "C"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_execution_dependency_wait_sum{job=~\"$job\"}[$interval]) / avg(block_executor_concurrency{job=~\"$job\"}) ) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "executor_dependency_wait",
+                        "range": true,
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_execution_vm_init_seconds_sum{job=~\"$job\"}[$interval]) / avg(block_executor_concurrency{job=~\"$job\"}) ) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "vm_init",
+                        "range": true,
+                        "refId": "B"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_execution_task_validate_seconds_sum{job=~\"$job\"}[$interval]) / avg(block_executor_concurrency{job=~\"$job\"}) ) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "task_validate",
+                        "range": true,
+                        "refId": "D"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_execution_task_execute_seconds_sum{job=~\"$job\"}[$interval]) / avg(block_executor_concurrency{job=~\"$job\"}) ) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "task_execute",
+                        "range": true,
+                        "refId": "E"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(block_executor_signature_verification_seconds_sum{job=~\"$job\"}[$interval])) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "signature_verification",
+                        "range": true,
+                        "refId": "F"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_vm_txn_total_seconds_sum{job=~\"$job\"}[$interval]) / avg(block_executor_concurrency{job=~\"$job\"}) ) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "vm_execute_user_txn",
+                        "range": true,
+                        "refId": "G"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "BlockSTM  time breakdown per block",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "$$hashKey": "object:314",
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "$$hashKey": "object:315",
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 0,
+                    "y": 24
+                },
+                "hiddenSeries": false,
+                "id": 45,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": true,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "10.3.0-64399",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_execution_dependency_wait_count{job=~\"$job\"}[$interval]) ) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "dependency_wait_per_block",
+                        "range": true,
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_execution_task_validate_seconds_count{job=~\"$job\"}[$interval])) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "task_validate_per_block",
+                        "range": true,
+                        "refId": "D"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_execution_task_execute_seconds_count{job=~\"$job\"}[$interval]) ) / quantile(0.67, rate(consensus_duration_count{job=~\"$job\"}[$interval]) )",
+                        "hide": false,
+                        "legendFormat": "task_execute_per_block",
+                        "range": true,
+                        "refId": "E"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "quantile(0.67, rate(aptos_consensus_num_txns_per_block_sum{job=~\"$job\"}[$interval]) / rate(aptos_consensus_num_txns_per_block_count{job=~\"$job\"}[$interval]))",
+                        "hide": false,
+                        "legendFormat": "transactions_per_block",
+                        "range": true,
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "BlockSTM  operations per block",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "$$hashKey": "object:314",
+                        "format": "none",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "$$hashKey": "object:315",
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 8,
+                    "y": 24
+                },
+                "hiddenSeries": false,
+                "id": 46,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": true,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "10.3.0-64399",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "avg(block_executor_concurrency{job=~\"$job\"})",
+                        "hide": false,
+                        "legendFormat": "dependency_wait_per_block",
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "BlockSTM  concurrency",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "$$hashKey": "object:314",
+                        "format": "none",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "$$hashKey": "object:315",
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "collapsed": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "editable": false,
+                "error": false,
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 32
+                },
+                "id": 13,
+                "panels": [],
+                "span": 0,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "refId": "A"
+                    }
+                ],
+                "title": "Percentiles",
+                "type": "row"
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent to execute a block",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 0,
+                    "y": 33
+                },
+                "hiddenSeries": false,
+                "id": 9,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "10.3.0-64167",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "histogram_quantile(0.50, sum(rate(aptos_executor_execute_block_seconds_bucket{job=~\"$job\"}[$interval])) by (kubernetes_pod_name, role, le))",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "C"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Block execution time [p50]",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent to execute a block",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 8,
+                    "y": 33
+                },
+                "hiddenSeries": false,
+                "id": 24,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "10.3.0-64167",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "histogram_quantile(0.90, sum(rate(aptos_executor_execute_block_seconds_bucket{job=~\"$job\"}[$interval])) by (kubernetes_pod_name, role, le))",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "C"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Block execution time [p90]",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent to execute a block",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 16,
+                    "y": 33
+                },
+                "hiddenSeries": false,
+                "id": 23,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "10.3.0-64167",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "histogram_quantile(0.99, sum(rate(aptos_executor_execute_block_seconds_bucket{job=~\"$job\"}[$interval])) by (kubernetes_pod_name, role, le))",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "C"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Block execution time [p99]",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent for persisting execution result to storage when committing blocks",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 0,
+                    "y": 41
+                },
+                "hiddenSeries": false,
+                "id": 18,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "histogram_quantile(0.50, sum(rate(aptos_executor_save_transactions_seconds_bucket{job=~\"$job\"}[$interval])) by (kubernetes_pod_name, role,le))",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Time spent in storage to save transactions [p50]",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent for persisting execution result to storage when committing blocks",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 8,
+                    "y": 41
+                },
+                "hiddenSeries": false,
+                "id": 25,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "histogram_quantile(0.90, sum(rate(aptos_executor_save_transactions_seconds_bucket{job=~\"$job\"}[$interval])) by (kubernetes_pod_name, role,le))",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Time spent in storage to save transactions [p90]",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent for persisting execution result to storage when committing blocks",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 16,
+                    "y": 41
+                },
+                "hiddenSeries": false,
+                "id": 26,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": true,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "histogram_quantile(0.99, sum(rate(aptos_executor_save_transactions_seconds_bucket{job=~\"$job\"}[$interval])) by (kubernetes_pod_name, role,le))",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Time spent in storage to save transactions [p99]",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent to execute a block in VM",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 0,
+                    "y": 49
+                },
+                "hiddenSeries": false,
+                "id": 16,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "histogram_quantile(0.50, sum(rate(aptos_executor_vm_execute_block_seconds_bucket{job=~\"$job\"}[$interval])) by (kubernetes_pod_name, role, le))",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "VM execute block time [p50]",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent to execute a block in VM",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 8,
+                    "y": 49
+                },
+                "hiddenSeries": false,
+                "id": 27,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "histogram_quantile(0.90, sum(rate(aptos_executor_vm_execute_block_seconds_bucket{job=~\"$job\"}[$interval])) by (kubernetes_pod_name, role, le))",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "VM execute block time [p90]",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent to execute a block in VM",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 16,
+                    "y": 49
+                },
+                "hiddenSeries": false,
+                "id": 28,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "histogram_quantile(0.99, sum(rate(aptos_executor_vm_execute_block_seconds_bucket{job=~\"$job\"}[$interval])) by (kubernetes_pod_name, role, le))",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "VM execute block time [p99]",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent to commit blocks",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 0,
+                    "y": 57
+                },
+                "hiddenSeries": false,
+                "id": 17,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "histogram_quantile(0.50, sum(rate(aptos_executor_commit_blocks_seconds_bucket{job=~\"$job\"}[$interval])) by (kubernetes_pod_name, role, le))",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Total time to commit blocks [p50]",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent to commit blocks",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 8,
+                    "y": 57
+                },
+                "hiddenSeries": false,
+                "id": 29,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "histogram_quantile(0.90, sum(rate(aptos_executor_commit_blocks_seconds_bucket{job=~\"$job\"}[$interval])) by (kubernetes_pod_name, role, le))",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Total time to commit blocks [p90]",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "p50, p95 and p99 of the time spent to commit blocks",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 16,
+                    "y": 57
+                },
+                "hiddenSeries": false,
+                "id": 30,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "histogram_quantile(0.99, sum(rate(aptos_executor_commit_blocks_seconds_bucket{job=~\"$job\"}[$interval])) by (kubernetes_pod_name, role, le))",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Total time to commit blocks [p99]",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "collapsed": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "editable": false,
+                "error": false,
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 65
+                },
+                "id": 11,
+                "panels": [],
+                "span": 0,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "refId": "A"
+                    }
+                ],
+                "title": "Validators",
+                "type": "row"
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "The average time spent to execute a block",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 0,
+                    "y": 66
+                },
+                "hiddenSeries": false,
+                "id": 6,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "rate(aptos_executor_execute_block_seconds_sum{job=~\"$job\"}[$interval]) / rate(aptos_executor_execute_block_seconds_count{job=~\"$job\"}[$interval])",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Avg Block execution time",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "µs",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "The average time spent to execute a block in VM",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 8,
+                    "y": 66
+                },
+                "hiddenSeries": false,
+                "id": 15,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "rate(aptos_executor_vm_execute_block_seconds_sum{job=~\"$job\"}[$interval]) / rate(aptos_executor_vm_execute_block_seconds_count{job=~\"$job\"}[$interval])",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Avg  VM execute block time",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "µs",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "The average time spent to commit blocks",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 16,
+                    "y": 66
+                },
+                "hiddenSeries": false,
+                "id": 4,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "rate(aptos_executor_commit_blocks_seconds_sum{job=~\"$job\"}[$interval]) / rate(aptos_executor_commit_blocks_seconds_count{job=~\"$job\"}[$interval])",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Avg  Total time to commit blocks",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "The average time spent for persisting execution result to storage when committing blocks",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 0,
+                    "y": 74
+                },
+                "hiddenSeries": false,
+                "id": 2,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "rate(aptos_executor_save_transactions_seconds_sum{job=~\"$job\"}[$interval]) / rate(aptos_executor_save_transactions_seconds_count{job=~\"$job\"}[$interval])",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Avg  Time spent in storage to save transactions",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "The average time spent for executing and committing each chunk in state-syncing",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 8,
+                    "y": 74
+                },
+                "hiddenSeries": false,
+                "id": 20,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "rate(aptos_executor_execute_and_commit_chunk_seconds_sum{job=~\"$job\"}[$interval]) / rate(aptos_executor_execute_and_commit_chunk_seconds_count{job=~\"$job\"}[$interval])",
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Avg Execute and commit chunk time",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "The counter that indicates the number of errors reported.",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 16,
+                    "y": 74
+                },
+                "hiddenSeries": false,
+                "id": 22,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "aptos_executor_error_total{job=~\"$job\"}",
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Executor Error Counter",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "The rate of speculative ",
+                "editable": false,
+                "error": false,
+                "fieldConfig": {
+                    "defaults": {
+                        "unit": ""
+                    },
+                    "overrides": []
+                },
+                "fill": 0,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 0,
+                    "y": 82
+                },
+                "hiddenSeries": false,
+                "id": 32,
+                "legend": {
+                    "alignAsTable": false,
+                    "avg": false,
+                    "current": false,
+                    "hideEmpty": false,
+                    "hideZero": false,
+                    "max": false,
+                    "min": false,
+                    "rightSide": false,
+                    "show": false,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "9.5.0-cloud.4.a016665c",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "span": 0,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "rate(aptos_execution_speculative_abort_count{job=~\"$job\"}[$interval])",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{kubernetes_pod_name}}-{{role}}",
+                        "range": true,
+                        "refId": "A"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Execution speculative abort rate",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "type": "graph",
+                "xaxis": {
+                    "format": "",
+                    "logBase": 0,
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "$$hashKey": "object:125",
+                        "format": "none",
+                        "label": "aborts / s",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "$$hashKey": "object:126",
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            }
+        ],
+        "refresh": "",
+        "revision": 1,
+        "schemaVersion": 39,
+        "tags": [
+            "aptos-core",
+            "🚨 P1 ⚠️"
+        ],
+        "templating": {
+            "list": [
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "APT",
+                        "value": "APT"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{chain=~\"APT\"}, chain)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "chain",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{chain=~\"APT\"}, chain)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "mainnet",
+                        "value": "mainnet"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{chain=~\"$chain\"}, network)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "network",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{chain=~\"$chain\"}, network)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "indexer_fullnode",
+                        "value": "indexer_fullnode"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{chain=~\"$chain\", network=~\"$network\", servicetype=~\"validator\"}, servicetype)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "servicetype",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{chain=~\"$chain\", network=~\"$network\", servicetype=~\"validator\"}, servicetype)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "ext-prod-APT-mainnet-indexer",
+                        "value": "ext-prod-APT-mainnet-indexer"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{chain=~\"$chain\",network=~\"$network\",servicetype=~\"$servicetype\"},job)",
+                    "hide": 0,
+                    "includeAll": false,
+                    "label": "JOB",
+                    "multi": false,
+                    "name": "job",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{chain=~\"$chain\",network=~\"$network\",servicetype=~\"$servicetype\"},job)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "indexer-aptos-kr",
+                        "value": "indexer-aptos-kr"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{job=~\"$job\",instance=~\"$instance:9100\"}, nodename)",
+                    "hide": 2,
+                    "includeAll": false,
+                    "label": "Host",
+                    "multi": false,
+                    "name": "nodename",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{job=~\"$job\",instance=~\"$instance:9100\"}, nodename)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 5,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "aptos-mainnet.nodeinfra.com",
+                        "value": "aptos-mainnet.nodeinfra.com"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(up{job=~\"$job\", servicetype=~\"$servicetype\", purpose!~\"update_message\"}, instance)",
+                    "description": "",
+                    "hide": 0,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "instance",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(up{job=~\"$job\",servicetype=~\"$servicetype\", purpose!~\"update_message\"}, instance)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "/^(?\u003cvalue\u003e.+):[0-9].+$/",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                },
+                {
+                    "auto": false,
+                    "auto_count": 100,
+                    "auto_min": "10s",
+                    "current": {
+                        "selected": false,
+                        "text": "1m",
+                        "value": "1m"
+                    },
+                    "hide": 0,
+                    "label": "Interval",
+                    "name": "interval",
+                    "options": [
+                        {
+                            "selected": false,
+                            "text": "30s",
+                            "value": "30s"
+                        },
+                        {
+                            "selected": true,
+                            "text": "1m",
+                            "value": "1m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "2m",
+                            "value": "2m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "3m",
+                            "value": "3m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "5m",
+                            "value": "5m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "10m",
+                            "value": "10m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "30m",
+                            "value": "30m"
+                        }
+                    ],
+                    "query": "30s,1m,2m,3m,5m,10m,30m",
+                    "queryValue": "",
+                    "refresh": 2,
+                    "skipUrlSync": false,
+                    "type": "interval"
+                },
+                {
+                    "current": {
+                        "isNone": true,
+                        "selected": false,
+                        "text": "None",
+                        "value": ""
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(aptos_connections{direction=\"inbound\"},peer_id)",
+                    "hide": 2,
+                    "includeAll": false,
+                    "label": "nodeID",
+                    "multi": false,
+                    "name": "nodeID",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(aptos_connections{direction=\"inbound\"},peer_id)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                },
+                {
+                    "current": {
+                        "isNone": true,
+                        "selected": false,
+                        "text": "None",
+                        "value": ""
+                    },
+                    "datasource": {
+                        "type": "yesoreyeram-infinity-datasource",
+                        "uid": "nIVhnOS4z"
+                    },
+                    "definition": "Infinity- (legacy) CollectionLookup(mainnet,mainnet.aptoslabs.com,llt,testnet.aptoslabs.com,$chain)",
+                    "hide": 2,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "chainAPI",
+                    "options": [],
+                    "query": {
+                        "infinityQuery": {
+                            "columns": [],
+                            "filters": [],
+                            "format": "table",
+                            "refId": "variable",
+                            "root_selector": "",
+                            "source": "url",
+                            "type": "json",
+                            "url": "https://jsonplaceholder.typicode.com/users",
+                            "url_options": {
+                                "data": "",
+                                "method": "GET"
+                            }
+                        },
+                        "query": "CollectionLookup(mainnet,mainnet.aptoslabs.com,llt,testnet.aptoslabs.com,$chain)",
+                        "queryType": "legacy"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                }
+            ]
+        },
+        "time": {
+            "from": "now-3h",
+            "to": "now"
+        },
+        "timeRangeUpdatedDuringEditOrView": false,
+        "timepicker": {
+            "refresh_intervals": [
+                "5s",
+                "10s",
+                "30s",
+                "1m",
+                "5m",
+                "15m",
+                "30m",
+                "1h",
+                "2h",
+                "1d"
+            ],
+            "time_options": [
+                "5m",
+                "15m",
+                "1h",
+                "6h",
+                "12h",
+                "24h",
+                "2d",
+                "7d",
+                "30d"
+            ]
+        },
+        "timezone": "",
+        "title": "Aptos_Validator_Performance",
+        "uid": "execution1",
+        "version": 8,
+        "weekStart": ""
+    }
+}

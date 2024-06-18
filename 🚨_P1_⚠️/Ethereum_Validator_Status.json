@@ -1,0 +1,1024 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "ethereum-validator-status",
+        "url": "/d/Iasda90asdj/ethereum-validator-status",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2024-04-03T07:57:00Z",
+        "updated": "2024-04-03T07:57:11Z",
+        "updatedBy": "jaemin1",
+        "createdBy": "jaemin1",
+        "version": 2,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 306,
+        "folderUid": "fdembllwltgxsf",
+        "folderTitle": "🚨 P1 ⚠️",
+        "folderUrl": "/dashboards/f/fdembllwltgxsf/f09f9aa8-p1-e29aa0-efb88f",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "datasource",
+                        "uid": "grafana"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "description": "Beta dashboard for ethereum staking deployment",
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "gnetId": 13481,
+        "graphTooltip": 0,
+        "id": 369,
+        "links": [],
+        "liveNow": false,
+        "panels": [
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 11,
+                    "w": 8,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 20,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "none",
+                    "justifyMode": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showPercentChange": false,
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "11.1.0-68838",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "up{validator=~\"$validators.*\"}",
+                        "interval": "",
+                        "legendFormat": "{{ validator }} {{ job }}",
+                        "queryType": "randomWalk",
+                        "refId": "A"
+                    }
+                ],
+                "title": "Exporter job status - $validators",
+                "transparent": true,
+                "type": "stat"
+            },
+            {
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fill": 1,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 7,
+                    "w": 16,
+                    "x": 8,
+                    "y": 0
+                },
+                "hiddenSeries": false,
+                "id": 4,
+                "legend": {
+                    "avg": false,
+                    "current": false,
+                    "max": false,
+                    "min": false,
+                    "show": true,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "11.1.0-68838",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [
+                    {
+                        "$$hashKey": "object:3341",
+                        "alias": "/known/",
+                        "lines": false,
+                        "points": true
+                    }
+                ],
+                "spaceLength": 10,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "geth_known_states{validator=~\"$validators.*\"}",
+                        "interval": "",
+                        "legendFormat": "known - {{validator}}",
+                        "queryType": "randomWalk",
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "geth_pulled_states{validator=~\"$validators.*\"}",
+                        "interval": "",
+                        "legendFormat": "pulled - {{validator}}",
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [],
+                "timeRegions": [],
+                "title": "Geth states",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "transparent": true,
+                "type": "graph",
+                "xaxis": {
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "alert": {
+                    "alertRuleTags": {},
+                    "conditions": [
+                        {
+                            "evaluator": {
+                                "params": [
+                                    0.75
+                                ],
+                                "type": "lt"
+                            },
+                            "operator": {
+                                "type": "and"
+                            },
+                            "query": {
+                                "params": [
+                                    "A",
+                                    "5m",
+                                    "now"
+                                ]
+                            },
+                            "reducer": {
+                                "params": [],
+                                "type": "avg"
+                            },
+                            "type": "query"
+                        }
+                    ],
+                    "executionErrorState": "alerting",
+                    "for": "5m",
+                    "frequency": "1m",
+                    "handler": 1,
+                    "name": "Lighthouse Validator Clients Enabled alert",
+                    "noDataState": "no_data",
+                    "notifications": []
+                },
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fill": 1,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 8,
+                    "y": 7
+                },
+                "hiddenSeries": false,
+                "id": 18,
+                "legend": {
+                    "avg": false,
+                    "current": false,
+                    "max": false,
+                    "min": false,
+                    "show": true,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "11.1.0-68838",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "vc_validators_enabled_count",
+                        "interval": "",
+                        "legendFormat": "{{ validator }}",
+                        "queryType": "randomWalk",
+                        "refId": "A"
+                    }
+                ],
+                "thresholds": [
+                    {
+                        "colorMode": "critical",
+                        "fill": true,
+                        "line": true,
+                        "op": "lt",
+                        "value": 0.75
+                    }
+                ],
+                "timeRegions": [],
+                "title": "Lighthouse Validator Clients Enabled",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "transparent": true,
+                "type": "graph",
+                "xaxis": {
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "$$hashKey": "object:628",
+                        "format": "short",
+                        "logBase": 1,
+                        "min": "0",
+                        "show": true
+                    },
+                    {
+                        "$$hashKey": "object:629",
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "alert": {
+                    "alertRuleTags": {},
+                    "conditions": [
+                        {
+                            "evaluator": {
+                                "params": [
+                                    1
+                                ],
+                                "type": "gt"
+                            },
+                            "operator": {
+                                "type": "and"
+                            },
+                            "query": {
+                                "params": [
+                                    "B",
+                                    "5m",
+                                    "now"
+                                ]
+                            },
+                            "reducer": {
+                                "params": [],
+                                "type": "count"
+                            },
+                            "type": "query"
+                        }
+                    ],
+                    "executionErrorState": "alerting",
+                    "for": "1m",
+                    "frequency": "1m",
+                    "handler": 1,
+                    "name": "ETH1 endpoints errors",
+                    "noDataState": "ok",
+                    "notifications": []
+                },
+                "aliasColors": {},
+                "bars": false,
+                "dashLength": 10,
+                "dashes": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fill": 1,
+                "fillGradient": 0,
+                "gridPos": {
+                    "h": 8,
+                    "w": 8,
+                    "x": 16,
+                    "y": 7
+                },
+                "hiddenSeries": false,
+                "id": 16,
+                "legend": {
+                    "avg": false,
+                    "current": false,
+                    "max": false,
+                    "min": false,
+                    "show": true,
+                    "total": false,
+                    "values": false
+                },
+                "lines": true,
+                "linewidth": 1,
+                "nullPointMode": "null",
+                "options": {
+                    "alertThreshold": true
+                },
+                "percentage": false,
+                "pluginVersion": "11.1.0-68838",
+                "pointradius": 2,
+                "points": false,
+                "renderer": "flot",
+                "seriesOverrides": [],
+                "spaceLength": 10,
+                "stack": false,
+                "steppedLine": false,
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "irate(eth1_endpoint_requests [1m])",
+                        "hide": false,
+                        "instant": false,
+                        "interval": "",
+                        "legendFormat": "{{ endpoint }} requests for {{ validator }}",
+                        "queryType": "randomWalk",
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "eth1_endpoint_errors",
+                        "interval": "",
+                        "legendFormat": "{{ endpoint }} errors for {{ validator }}",
+                        "queryType": "randomWalk",
+                        "refId": "B"
+                    }
+                ],
+                "thresholds": [
+                    {
+                        "colorMode": "critical",
+                        "fill": true,
+                        "line": true,
+                        "op": "gt",
+                        "value": 1
+                    }
+                ],
+                "timeRegions": [],
+                "title": "ETH1 endpoint request rate",
+                "tooltip": {
+                    "shared": true,
+                    "sort": 0,
+                    "value_type": "individual"
+                },
+                "transparent": true,
+                "type": "graph",
+                "xaxis": {
+                    "mode": "time",
+                    "show": true,
+                    "values": []
+                },
+                "yaxes": [
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    },
+                    {
+                        "format": "short",
+                        "logBase": 1,
+                        "show": true
+                    }
+                ],
+                "yaxis": {
+                    "align": false
+                }
+            },
+            {
+                "collapsed": true,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "grafanacloud-prom"
+                },
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 15
+                },
+                "id": 22,
+                "panels": [
+                    {
+                        "aliasColors": {},
+                        "bars": false,
+                        "dashLength": 10,
+                        "dashes": false,
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "fieldConfig": {
+                            "defaults": {
+                                "custom": {},
+                                "unit": "bytes"
+                            },
+                            "overrides": []
+                        },
+                        "fill": 1,
+                        "fillGradient": 0,
+                        "gridPos": {
+                            "h": 8,
+                            "w": 12,
+                            "x": 0,
+                            "y": 16
+                        },
+                        "hiddenSeries": false,
+                        "id": 12,
+                        "legend": {
+                            "avg": false,
+                            "current": false,
+                            "max": false,
+                            "min": false,
+                            "show": false,
+                            "total": false,
+                            "values": false
+                        },
+                        "lines": true,
+                        "linewidth": 1,
+                        "nullPointMode": "null",
+                        "options": {
+                            "alertThreshold": true
+                        },
+                        "percentage": false,
+                        "pluginVersion": "7.3.4",
+                        "pointradius": 2,
+                        "points": false,
+                        "renderer": "flot",
+                        "seriesOverrides": [],
+                        "spaceLength": 10,
+                        "stack": false,
+                        "steppedLine": false,
+                        "targets": [
+                            {
+                                "datasource": {
+                                    "type": "prometheus",
+                                    "uid": "1YugLcnVk"
+                                },
+                                "expr": "store_disk_db_size{validator=~\"$validators.*\"}",
+                                "interval": "",
+                                "legendFormat": "{{ validator }}",
+                                "queryType": "randomWalk",
+                                "refId": "A"
+                            }
+                        ],
+                        "thresholds": [],
+                        "timeRegions": [],
+                        "title": "Lighthouse Beacon DB Size - $validators",
+                        "tooltip": {
+                            "shared": true,
+                            "sort": 0,
+                            "value_type": "individual"
+                        },
+                        "transparent": true,
+                        "type": "graph",
+                        "xaxis": {
+                            "mode": "time",
+                            "show": true,
+                            "values": []
+                        },
+                        "yaxes": [
+                            {
+                                "format": "bytes",
+                                "logBase": 1,
+                                "show": true
+                            },
+                            {
+                                "format": "short",
+                                "logBase": 1,
+                                "show": true
+                            }
+                        ],
+                        "yaxis": {
+                            "align": false
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "description": "",
+                        "fieldConfig": {
+                            "defaults": {
+                                "custom": {},
+                                "mappings": [],
+                                "thresholds": {
+                                    "mode": "absolute",
+                                    "steps": [
+                                        {
+                                            "color": "green"
+                                        }
+                                    ]
+                                },
+                                "unit": "locale"
+                            },
+                            "overrides": []
+                        },
+                        "gridPos": {
+                            "h": 8,
+                            "w": 12,
+                            "x": 12,
+                            "y": 16
+                        },
+                        "id": 14,
+                        "options": {
+                            "colorMode": "value",
+                            "graphMode": "area",
+                            "justifyMode": "auto",
+                            "orientation": "auto",
+                            "reduceOptions": {
+                                "calcs": [
+                                    "mean"
+                                ],
+                                "fields": "",
+                                "values": false
+                            },
+                            "textMode": "auto"
+                        },
+                        "pluginVersion": "7.3.4",
+                        "targets": [
+                            {
+                                "datasource": {
+                                    "type": "prometheus",
+                                    "uid": "1YugLcnVk"
+                                },
+                                "expr": "eth1_highest_processed_deposit_block{validator=~\"$validators\"}",
+                                "interval": "",
+                                "legendFormat": "{{ validator }}",
+                                "queryType": "randomWalk",
+                                "refId": "A"
+                            }
+                        ],
+                        "title": "Number of the last block checked for deposits",
+                        "transparent": true,
+                        "type": "stat"
+                    },
+                    {
+                        "aliasColors": {},
+                        "bars": false,
+                        "dashLength": 10,
+                        "dashes": false,
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "fieldConfig": {
+                            "defaults": {
+                                "custom": {},
+                                "unit": "bytes"
+                            },
+                            "overrides": []
+                        },
+                        "fill": 1,
+                        "fillGradient": 0,
+                        "gridPos": {
+                            "h": 7,
+                            "w": 24,
+                            "x": 0,
+                            "y": 24
+                        },
+                        "hiddenSeries": false,
+                        "id": 8,
+                        "legend": {
+                            "alignAsTable": true,
+                            "avg": false,
+                            "current": true,
+                            "max": true,
+                            "min": false,
+                            "rightSide": true,
+                            "show": true,
+                            "sort": "current",
+                            "sortDesc": true,
+                            "total": false,
+                            "values": true
+                        },
+                        "lines": true,
+                        "linewidth": 1,
+                        "nullPointMode": "null",
+                        "options": {
+                            "alertThreshold": true
+                        },
+                        "percentage": false,
+                        "pluginVersion": "7.3.4",
+                        "pointradius": 2,
+                        "points": false,
+                        "renderer": "flot",
+                        "seriesOverrides": [],
+                        "spaceLength": 10,
+                        "stack": false,
+                        "steppedLine": false,
+                        "targets": [
+                            {
+                                "datasource": {
+                                    "type": "prometheus",
+                                    "uid": "1YugLcnVk"
+                                },
+                                "expr": "namedprocess_namegroup_memory_bytes{groupname=~\"$processes\", memtype=\"resident\", validator=~\"$validators.*\"}",
+                                "interval": "",
+                                "legendFormat": "{{ groupname }} - {{ validator }}",
+                                "queryType": "randomWalk",
+                                "refId": "A"
+                            }
+                        ],
+                        "thresholds": [],
+                        "timeRegions": [],
+                        "title": "Process resident memory",
+                        "tooltip": {
+                            "shared": true,
+                            "sort": 0,
+                            "value_type": "individual"
+                        },
+                        "transparent": true,
+                        "type": "graph",
+                        "xaxis": {
+                            "mode": "time",
+                            "show": true,
+                            "values": []
+                        },
+                        "yaxes": [
+                            {
+                                "$$hashKey": "object:684",
+                                "format": "bytes",
+                                "logBase": 1,
+                                "min": "0",
+                                "show": true
+                            },
+                            {
+                                "$$hashKey": "object:685",
+                                "format": "short",
+                                "logBase": 1,
+                                "show": true
+                            }
+                        ],
+                        "yaxis": {
+                            "align": false
+                        }
+                    }
+                ],
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "grafanacloud-prom"
+                        },
+                        "refId": "A"
+                    }
+                ],
+                "title": "Host info",
+                "type": "row"
+            },
+            {
+                "collapsed": false,
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "grafanacloud-prom"
+                },
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 16
+                },
+                "id": 24,
+                "panels": [],
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "grafanacloud-prom"
+                        },
+                        "refId": "A"
+                    }
+                ],
+                "title": "Peers",
+                "type": "row"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 5,
+                    "w": 7,
+                    "x": 0,
+                    "y": 17
+                },
+                "id": 6,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "area",
+                    "justifyMode": "auto",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "mean"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showPercentChange": false,
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "11.1.0-68838",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "p2p_peers{validator=~\"$validators.*\"}",
+                        "instant": false,
+                        "interval": "",
+                        "legendFormat": "{{ validator }}",
+                        "queryType": "randomWalk",
+                        "refId": "A"
+                    }
+                ],
+                "title": "Geth P2P peers - $validators",
+                "transparent": true,
+                "type": "stat"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "mappings": [],
+                        "noValue": "0",
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 5,
+                    "w": 6,
+                    "x": 7,
+                    "y": 17
+                },
+                "id": 10,
+                "options": {
+                    "colorMode": "value",
+                    "graphMode": "area",
+                    "justifyMode": "auto",
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showPercentChange": false,
+                    "textMode": "auto",
+                    "wideLayout": true
+                },
+                "pluginVersion": "11.1.0-68838",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "expr": "sync_peers_per_status{validator=~\"$validators.*\"}",
+                        "instant": false,
+                        "interval": "",
+                        "legendFormat": "{{ sync_status }} - {{ validator }}",
+                        "queryType": "randomWalk",
+                        "refId": "A"
+                    }
+                ],
+                "title": "Lighthouse Beacon Sync Peers - $validators",
+                "transparent": true,
+                "type": "stat"
+            }
+        ],
+        "refresh": "30s",
+        "schemaVersion": 39,
+        "tags": [],
+        "templating": {
+            "list": [
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "All",
+                        "value": "$__all"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(up,validator)",
+                    "hide": 0,
+                    "includeAll": true,
+                    "multi": true,
+                    "name": "validators",
+                    "options": [],
+                    "query": "label_values(up,validator)",
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "All",
+                        "value": "$__all"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(namedprocess_namegroup_cpu_seconds_total,groupname)",
+                    "hide": 0,
+                    "includeAll": true,
+                    "multi": true,
+                    "name": "processes",
+                    "options": [],
+                    "query": "label_values(namedprocess_namegroup_cpu_seconds_total,groupname)",
+                    "refresh": 2,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                }
+            ]
+        },
+        "time": {
+            "from": "now-15m",
+            "to": "now"
+        },
+        "timeRangeUpdatedDuringEditOrView": false,
+        "timepicker": {},
+        "timezone": "",
+        "title": "Ethereum_Validator_Status",
+        "uid": "Iasda90asdj",
+        "version": 2,
+        "weekStart": ""
+    }
+}

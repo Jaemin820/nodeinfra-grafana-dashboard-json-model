@@ -1,0 +1,121 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "logql-experiment",
+        "url": "/d/d83330be-2b97-4863-9a58-0145da8a53eb/logql-experiment",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2023-07-13T01:29:01Z",
+        "updated": "2023-12-19T06:38:17Z",
+        "updatedBy": "Anonymous",
+        "createdBy": "Anonymous",
+        "version": 4,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 84,
+        "folderUid": "cqwi9Ht4z",
+        "folderTitle": "z. Playground 🧪👨🏻‍💻",
+        "folderUrl": "/dashboards/f/cqwi9Ht4z/57313307-4437-5342-8a14-9c95455930da",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": 219,
+        "links": [],
+        "liveNow": false,
+        "panels": [
+            {
+                "datasource": {
+                    "type": "loki",
+                    "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 1,
+                "options": {
+                    "dedupStrategy": "none",
+                    "enableLogDetails": true,
+                    "prettifyLogMessage": false,
+                    "showCommonLabels": false,
+                    "showLabels": false,
+                    "showTime": false,
+                    "sortOrder": "Descending",
+                    "wrapLogMessage": false
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "loki",
+                            "uid": "f782d7ea-f993-4f3a-917d-3e5539188746"
+                        },
+                        "editorMode": "code",
+                        "expr": "{chain=\"APT\", filename=\"/home/ubuntu/kong/log/access-proxy.log\"}",
+                        "maxLines": 4999,
+                        "queryType": "range",
+                        "refId": "A",
+                        "resolution": 10
+                    }
+                ],
+                "title": "logQL Experiment",
+                "type": "logs"
+            }
+        ],
+        "refresh": "",
+        "schemaVersion": 39,
+        "tags": [
+            "playground"
+        ],
+        "templating": {
+            "list": []
+        },
+        "time": {
+            "from": "now-6h",
+            "to": "now"
+        },
+        "timepicker": {},
+        "timezone": "",
+        "title": "logQL Experiment",
+        "uid": "d83330be-2b97-4863-9a58-0145da8a53eb",
+        "version": 4,
+        "weekStart": ""
+    }
+}

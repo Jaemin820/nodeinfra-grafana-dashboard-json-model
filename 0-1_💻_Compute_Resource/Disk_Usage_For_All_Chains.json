@@ -1,0 +1,1624 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "disk-usage-for-all-chains",
+        "url": "/d/uFJrRNLVz/disk-usage-for-all-chains",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2023-04-04T04:32:59Z",
+        "updated": "2024-04-12T04:56:08Z",
+        "updatedBy": "jaemin1",
+        "createdBy": "Anonymous",
+        "version": 80,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 56,
+        "folderUid": "S2YrZSNVk",
+        "folderTitle": "0-1 💻 Compute Resource",
+        "folderUrl": "/dashboards/f/S2YrZSNVk/0-1-f09f92bb-compute-resource",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "target": {
+                        "limit": 100,
+                        "matchAny": false,
+                        "tags": [],
+                        "type": "dashboard"
+                    },
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": 167,
+        "links": [],
+        "liveNow": false,
+        "panels": [
+            {
+                "collapsed": false,
+                "gridPos": {
+                    "h": 1,
+                    "w": 24,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 15,
+                "panels": [],
+                "repeat": "chain",
+                "repeatDirection": "h",
+                "title": "Disk Overview [$chain]",
+                "type": "row"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "links": [],
+                        "mappings": [],
+                        "max": 100,
+                        "min": 0,
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 90
+                                }
+                            ]
+                        },
+                        "unit": "decbytes"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 12,
+                    "x": 0,
+                    "y": 1
+                },
+                "id": 32,
+                "options": {
+                    "displayMode": "lcd",
+                    "maxVizHeight": 300,
+                    "minVizHeight": 10,
+                    "minVizWidth": 0,
+                    "namePlacement": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showUnfilled": true,
+                    "sizing": "auto",
+                    "valueMode": "color"
+                },
+                "pluginVersion": "11.1.0-69051",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": true,
+                        "expr": "(node_filesystem_avail_bytes {chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}+(node_filesystem_size_bytes{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}))",
+                        "format": "time_series",
+                        "instant": false,
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{instance}} {{servicetype}} [{{region}}] : {{mountpoint}}",
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": true,
+                        "expr": "node_filesystem_files_free{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",fstype=~\"ext.?|xfs\"} / node_filesystem_files{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",fstype=~\"ext.?|xfs\"}",
+                        "format": "time_series",
+                        "hide": true,
+                        "interval": "",
+                        "legendFormat": "Inodes：{{instance}}：{{mountpoint}}",
+                        "range": true,
+                        "refId": "B"
+                    }
+                ],
+                "title": "[$chain] Mainnet Instance Disk Size per mount point",
+                "type": "bargauge"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "links": [],
+                        "mappings": [],
+                        "max": 100,
+                        "min": 0,
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 90
+                                }
+                            ]
+                        },
+                        "unit": "decbytes"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 12,
+                    "x": 12,
+                    "y": 1
+                },
+                "id": 16,
+                "options": {
+                    "displayMode": "lcd",
+                    "maxVizHeight": 300,
+                    "minVizHeight": 10,
+                    "minVizWidth": 0,
+                    "namePlacement": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showUnfilled": true,
+                    "sizing": "auto",
+                    "valueMode": "color"
+                },
+                "pluginVersion": "11.1.0-69051",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": true,
+                        "expr": "(node_filesystem_avail_bytes {chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}+(node_filesystem_size_bytes{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}))",
+                        "format": "time_series",
+                        "instant": false,
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{instance}} {{servicetype}} [{{region}}] : {{mountpoint}}",
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": true,
+                        "expr": "node_filesystem_files_free{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",fstype=~\"ext.?|xfs\"} / node_filesystem_files{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",fstype=~\"ext.?|xfs\"}",
+                        "format": "time_series",
+                        "hide": true,
+                        "interval": "",
+                        "legendFormat": "Inodes：{{instance}}：{{mountpoint}}",
+                        "range": true,
+                        "refId": "B"
+                    }
+                ],
+                "title": "[$chain] Testnet Instance Disk Space (%)",
+                "type": "bargauge"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "links": [],
+                        "mappings": [],
+                        "max": 100,
+                        "min": 0,
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 90
+                                }
+                            ]
+                        },
+                        "unit": "percent"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 12,
+                    "x": 0,
+                    "y": 10
+                },
+                "id": 31,
+                "options": {
+                    "displayMode": "lcd",
+                    "maxVizHeight": 300,
+                    "minVizHeight": 10,
+                    "minVizWidth": 0,
+                    "namePlacement": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showUnfilled": true,
+                    "sizing": "auto",
+                    "valueMode": "color"
+                },
+                "pluginVersion": "11.1.0-69051",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": true,
+                        "expr": "(node_filesystem_size_bytes{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}) *100/(node_filesystem_avail_bytes {chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}+(node_filesystem_size_bytes{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}))",
+                        "format": "time_series",
+                        "instant": false,
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{instance}} {{servicetype}} [{{region}}] : {{mountpoint}}",
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": true,
+                        "expr": "node_filesystem_files_free{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",fstype=~\"ext.?|xfs\"} / node_filesystem_files{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",fstype=~\"ext.?|xfs\"}",
+                        "format": "time_series",
+                        "hide": true,
+                        "interval": "",
+                        "legendFormat": "Inodes：{{instance}}：{{mountpoint}}",
+                        "range": true,
+                        "refId": "B"
+                    }
+                ],
+                "title": "[$chain] Mainnet Instance Disk Space (%)",
+                "type": "bargauge"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "links": [],
+                        "mappings": [],
+                        "max": 100,
+                        "min": 0,
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 90
+                                }
+                            ]
+                        },
+                        "unit": "percent"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 9,
+                    "w": 12,
+                    "x": 12,
+                    "y": 10
+                },
+                "id": 33,
+                "options": {
+                    "displayMode": "lcd",
+                    "maxVizHeight": 300,
+                    "minVizHeight": 10,
+                    "minVizWidth": 0,
+                    "namePlacement": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showUnfilled": true,
+                    "sizing": "auto",
+                    "valueMode": "color"
+                },
+                "pluginVersion": "11.1.0-69051",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": true,
+                        "expr": "(node_filesystem_size_bytes{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}) *100/(node_filesystem_avail_bytes {chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}+(node_filesystem_size_bytes{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}-node_filesystem_free_bytes{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",mountpoint!=\"/boot\",fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}))",
+                        "format": "time_series",
+                        "instant": false,
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{instance}} {{servicetype}} [{{region}}] : {{mountpoint}}",
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": true,
+                        "expr": "node_filesystem_files_free{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",fstype=~\"ext.?|xfs\"} / node_filesystem_files{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",fstype=~\"ext.?|xfs\"}",
+                        "format": "time_series",
+                        "hide": true,
+                        "interval": "",
+                        "legendFormat": "Inodes：{{instance}}：{{mountpoint}}",
+                        "range": true,
+                        "refId": "B"
+                    }
+                ],
+                "title": "[$chain] Testnet Instance Disk Space (%)",
+                "type": "bargauge"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "bytes",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 40,
+                            "gradientMode": "opacity",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineStyle": {
+                                "fill": "solid"
+                            },
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "links": [],
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "bytes"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 10,
+                    "w": 12,
+                    "x": 0,
+                    "y": 19
+                },
+                "id": 20,
+                "options": {
+                    "legend": {
+                        "calcs": [
+                            "mean",
+                            "lastNotNull",
+                            "max",
+                            "min"
+                        ],
+                        "displayMode": "table",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "multi",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "9.2.0",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "node_filesystem_size_bytes{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",device!~'rootfs',fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"} - node_filesystem_avail_bytes{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",device!~'rootfs',fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{instance}} {{servicetype}} [{{region}}] : {{mountpoint}}",
+                        "range": true,
+                        "refId": "A",
+                        "step": 240
+                    }
+                ],
+                "title": "[$chain] Mainnet Disk Space Used",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "bytes",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 40,
+                            "gradientMode": "opacity",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineStyle": {
+                                "fill": "solid"
+                            },
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "links": [],
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "bytes"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 10,
+                    "w": 12,
+                    "x": 12,
+                    "y": 19
+                },
+                "id": 30,
+                "options": {
+                    "legend": {
+                        "calcs": [
+                            "mean",
+                            "lastNotNull",
+                            "max",
+                            "min"
+                        ],
+                        "displayMode": "table",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "multi",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "9.2.0",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "node_filesystem_size_bytes{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",device!~'rootfs',fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"} - node_filesystem_avail_bytes{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",device!~'rootfs',fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{instance}} {{servicetype}} [{{region}}] : {{mountpoint}}",
+                        "range": true,
+                        "refId": "A",
+                        "step": 240
+                    }
+                ],
+                "title": "[$chain] Testnet Disk Space Used",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "bytes",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 40,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "links": [],
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "bytes"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 10,
+                    "w": 12,
+                    "x": 0,
+                    "y": 29
+                },
+                "id": 26,
+                "options": {
+                    "legend": {
+                        "calcs": [
+                            "mean",
+                            "lastNotNull",
+                            "max",
+                            "min"
+                        ],
+                        "displayMode": "table",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "multi",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "9.2.0",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "-delta(node_filesystem_avail_bytes{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",device!~'rootfs',fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}[$interval])",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{instance}} {{servicetype}} [{{region}}] : {{mountpoint}}",
+                        "range": true,
+                        "refId": "A",
+                        "step": 240
+                    }
+                ],
+                "title": "[$chain] Mainnet Disk Space Change for [$interval]",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "bytes",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 40,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "links": [],
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "bytes"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 10,
+                    "w": 12,
+                    "x": 12,
+                    "y": 29
+                },
+                "id": 27,
+                "options": {
+                    "legend": {
+                        "calcs": [
+                            "mean",
+                            "lastNotNull",
+                            "max",
+                            "min"
+                        ],
+                        "displayMode": "table",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "multi",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "9.2.0",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "-delta(node_filesystem_avail_bytes{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",device!~'rootfs',fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}[$interval])",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{instance}} {{servicetype}} [{{region}}] : {{mountpoint}}",
+                        "range": true,
+                        "refId": "A",
+                        "step": 240
+                    }
+                ],
+                "title": "[$chain] Testnet Disk Space Change for [$interval]",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "percent(%)",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 40,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "links": [],
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "percent"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 10,
+                    "w": 12,
+                    "x": 0,
+                    "y": 39
+                },
+                "id": 28,
+                "options": {
+                    "legend": {
+                        "calcs": [
+                            "mean",
+                            "lastNotNull",
+                            "max",
+                            "min"
+                        ],
+                        "displayMode": "table",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "multi",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "9.2.0",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "-delta(node_filesystem_avail_bytes{chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\",device!~'rootfs',fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}[$interval])/node_filesystem_size_bytes * 100",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{instance}} {{servicetype}} [{{region}}] : {{mountpoint}}",
+                        "range": true,
+                        "refId": "A",
+                        "step": 240
+                    }
+                ],
+                "title": "[$chain] Mainnet Disk Space Change Ratio (%) for [$interval]",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "percent(%)",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 40,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "links": [],
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "percent"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 10,
+                    "w": 12,
+                    "x": 12,
+                    "y": 39
+                },
+                "id": 29,
+                "options": {
+                    "legend": {
+                        "calcs": [
+                            "mean",
+                            "lastNotNull",
+                            "max",
+                            "min"
+                        ],
+                        "displayMode": "table",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "multi",
+                        "sort": "none"
+                    }
+                },
+                "pluginVersion": "9.2.0",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "-delta(node_filesystem_avail_bytes{chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\",device!~'rootfs',fstype=~\"ext.*|xfs\",mountpoint !~\".*pod.*\"}[$interval])/node_filesystem_size_bytes * 100",
+                        "format": "time_series",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{instance}} {{servicetype}} [{{region}}] : {{mountpoint}}",
+                        "range": true,
+                        "refId": "A",
+                        "step": 240
+                    }
+                ],
+                "title": "[$chain] Testnet Disk Space Change Ratio (%) for [$interval]",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "The number of kibibytes read and written to the device  per second",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "Bytes read (-) / write (+)",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 33,
+                            "gradientMode": "opacity",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "links": [],
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "Bps"
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byRegexp",
+                                "options": "/.*Read$/"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.transform",
+                                    "value": "negative-Y"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 10,
+                    "w": 12,
+                    "x": 0,
+                    "y": 49
+                },
+                "id": 18,
+                "options": {
+                    "legend": {
+                        "calcs": [
+                            "min",
+                            "max",
+                            "mean",
+                            "lastNotNull"
+                        ],
+                        "displayMode": "table",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "multi",
+                        "sort": "desc"
+                    }
+                },
+                "pluginVersion": "9.1.2",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": true,
+                        "expr": "rate(node_disk_read_bytes_total{device!~\"md.*\",chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\"}[$interval])",
+                        "format": "time_series",
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{instance}} {{servicetype}} [{{region}}] : {{mountpoint}}",
+                        "range": true,
+                        "refId": "A",
+                        "step": 10
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": true,
+                        "expr": "rate(node_disk_written_bytes_total{device!~\"md.*\",chain=~\"$chain\", network=\"mainnet\", instance=~\"$instance:9100\"}[$interval])",
+                        "format": "time_series",
+                        "hide": false,
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{chain}} {{network}} {{servicetype}} : {{device}} Write",
+                        "range": true,
+                        "refId": "B",
+                        "step": 10
+                    }
+                ],
+                "title": "[$chain] Mainnet Disk R/W (kb/sec by device) [$interval]",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "description": "The number of kibibytes read and written to the device  per second",
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "Bytes read (-) / write (+)",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 33,
+                            "gradientMode": "opacity",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "never",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "links": [],
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green"
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "Bps"
+                    },
+                    "overrides": [
+                        {
+                            "matcher": {
+                                "id": "byRegexp",
+                                "options": "/.*Read$/"
+                            },
+                            "properties": [
+                                {
+                                    "id": "custom.transform",
+                                    "value": "negative-Y"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "gridPos": {
+                    "h": 10,
+                    "w": 12,
+                    "x": 12,
+                    "y": 49
+                },
+                "id": 22,
+                "options": {
+                    "legend": {
+                        "calcs": [
+                            "min",
+                            "max",
+                            "mean",
+                            "lastNotNull"
+                        ],
+                        "displayMode": "table",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "multi",
+                        "sort": "desc"
+                    }
+                },
+                "pluginVersion": "9.1.2",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": true,
+                        "expr": "rate(node_disk_read_bytes_total{device!~\"md.*\",chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\"}[$interval])",
+                        "format": "time_series",
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{instance}} {{servicetype}} [{{region}}] : {{mountpoint}}",
+                        "range": true,
+                        "refId": "A",
+                        "step": 10
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "exemplar": true,
+                        "expr": "rate(node_disk_written_bytes_total{device!~\"md.*\",chain=~\"$chain\", network=\"testnet\", instance=~\"$instance:9100\"}[$interval])",
+                        "format": "time_series",
+                        "hide": false,
+                        "interval": "",
+                        "intervalFactor": 1,
+                        "legendFormat": "{{chain}} {{network}} {{servicetype}} : {{device}} Write",
+                        "range": true,
+                        "refId": "B",
+                        "step": 10
+                    }
+                ],
+                "title": "[$chain] Testnet Disk R/W (kb/sec by device) [$interval]",
+                "type": "timeseries"
+            }
+        ],
+        "refresh": "",
+        "revision": 1,
+        "schemaVersion": 39,
+        "tags": [
+            "🚨 P1 ⚠️"
+        ],
+        "templating": {
+            "list": [
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "APT",
+                        "value": "APT"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{}, chain)",
+                    "hide": 0,
+                    "includeAll": true,
+                    "multi": false,
+                    "name": "chain",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{}, chain)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": true,
+                        "text": "All",
+                        "value": "$__all"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(node_uname_info{chain=~\"$chain\"}, network)",
+                    "hide": 0,
+                    "includeAll": true,
+                    "multi": false,
+                    "name": "network",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(node_uname_info{chain=~\"$chain\"}, network)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "tagValuesQuery": "",
+                    "tagsQuery": "",
+                    "type": "query",
+                    "useTags": false
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "All",
+                        "value": "$__all"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(up{chain=~\"$chain\", network=~\"$network\"}, region)",
+                    "description": "",
+                    "hide": 0,
+                    "includeAll": true,
+                    "multi": false,
+                    "name": "region",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(up{chain=~\"$chain\", network=~\"$network\"}, region)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "All",
+                        "value": "$__all"
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(up{chain=~\"$chain\", network=~\"$network\", region=~\"$region\"}, instance)",
+                    "description": "",
+                    "hide": 0,
+                    "includeAll": true,
+                    "multi": false,
+                    "name": "instance",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(up{chain=~\"$chain\", network=~\"$network\", region=~\"$region\"}, instance)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "/^(?\u003cvalue\u003e.+):[0-9].+$/",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                },
+                {
+                    "auto": false,
+                    "auto_count": 100,
+                    "auto_min": "10s",
+                    "current": {
+                        "selected": true,
+                        "text": "1m",
+                        "value": "1m"
+                    },
+                    "hide": 0,
+                    "label": "Interval",
+                    "name": "interval",
+                    "options": [
+                        {
+                            "selected": false,
+                            "text": "30s",
+                            "value": "30s"
+                        },
+                        {
+                            "selected": true,
+                            "text": "1m",
+                            "value": "1m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "2m",
+                            "value": "2m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "3m",
+                            "value": "3m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "5m",
+                            "value": "5m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "10m",
+                            "value": "10m"
+                        },
+                        {
+                            "selected": false,
+                            "text": "30m",
+                            "value": "30m"
+                        }
+                    ],
+                    "query": "30s,1m,2m,3m,5m,10m,30m",
+                    "queryValue": "",
+                    "refresh": 2,
+                    "skipUrlSync": false,
+                    "type": "interval"
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "None",
+                        "value": ""
+                    },
+                    "datasource": {
+                        "type": "prometheus",
+                        "uid": "1YugLcnVk"
+                    },
+                    "definition": "label_values(aptos_connections{direction=\"inbound\"},peer_id)",
+                    "hide": 2,
+                    "includeAll": false,
+                    "label": "nodeID",
+                    "multi": false,
+                    "name": "nodeID",
+                    "options": [],
+                    "query": {
+                        "query": "label_values(aptos_connections{direction=\"inbound\"},peer_id)",
+                        "refId": "StandardVariableQuery"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                },
+                {
+                    "current": {
+                        "selected": false,
+                        "text": "None",
+                        "value": ""
+                    },
+                    "datasource": {
+                        "type": "yesoreyeram-infinity-datasource",
+                        "uid": "nIVhnOS4z"
+                    },
+                    "definition": "Infinity- (legacy) CollectionLookup(mainnet,mainnet.aptoslabs.com,llt,testnet.aptoslabs.com,$chain)",
+                    "hide": 2,
+                    "includeAll": false,
+                    "multi": false,
+                    "name": "chainAPI",
+                    "options": [],
+                    "query": {
+                        "infinityQuery": {
+                            "columns": [],
+                            "filters": [],
+                            "format": "table",
+                            "refId": "variable",
+                            "root_selector": "",
+                            "source": "url",
+                            "type": "json",
+                            "url": "https://jsonplaceholder.typicode.com/users",
+                            "url_options": {
+                                "data": "",
+                                "method": "GET"
+                            }
+                        },
+                        "query": "CollectionLookup(mainnet,mainnet.aptoslabs.com,llt,testnet.aptoslabs.com,$chain)",
+                        "queryType": "legacy"
+                    },
+                    "refresh": 1,
+                    "regex": "",
+                    "skipUrlSync": false,
+                    "sort": 0,
+                    "type": "query"
+                }
+            ]
+        },
+        "time": {
+            "from": "now-24h",
+            "to": "now"
+        },
+        "timeRangeUpdatedDuringEditOrView": false,
+        "timepicker": {},
+        "timezone": "",
+        "title": "Disk_Usage_For_All_Chains",
+        "uid": "uFJrRNLVz",
+        "version": 80,
+        "weekStart": ""
+    }
+}
