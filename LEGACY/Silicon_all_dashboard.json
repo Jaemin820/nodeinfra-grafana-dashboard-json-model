@@ -1,0 +1,1384 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "silicon-all-dashboard",
+        "url": "/d/edky2p4qsqxhcb/silicon-all-dashboard",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2024-05-07T02:09:14Z",
+        "updated": "2024-06-12T05:02:48Z",
+        "updatedBy": "tg9",
+        "createdBy": "tg9",
+        "version": 20,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 143,
+        "folderUid": "NuyAuQ-Vk",
+        "folderTitle": "LEGACY",
+        "folderUrl": "/dashboards/f/NuyAuQ-Vk/legacy",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": 379,
+        "links": [],
+        "panels": [
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 1,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.batch;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.batch_data_backup;",
+                        "refId": "B",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.block;",
+                        "refId": "C",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.exit_root;",
+                        "refId": "D",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": true,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.forced_batch;",
+                        "refId": "E",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.fork_id;",
+                        "refId": "E",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.l2block;",
+                        "refId": "F",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": true,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.log;",
+                        "refId": "G",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.monitored_txs;",
+                        "refId": "G",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.proof;",
+                        "refId": "H",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.receipt;",
+                        "refId": "I",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.sequences;",
+                        "refId": "J",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.sync_info;",
+                        "refId": "K",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.transaction;",
+                        "refId": "L",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.trusted_reorg;",
+                        "refId": "N",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.verified_batch;",
+                        "refId": "M",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.virtual_batch;",
+                        "refId": "O",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "all",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "continuous-GrYlRd"
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 0
+                },
+                "id": 2,
+                "options": {
+                    "displayMode": "basic",
+                    "maxVizHeight": 300,
+                    "minVizHeight": 16,
+                    "minVizWidth": 8,
+                    "namePlacement": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [],
+                        "fields": "",
+                        "values": true
+                    },
+                    "showUnfilled": true,
+                    "sizing": "auto",
+                    "valueMode": "color"
+                },
+                "pluginVersion": "11.1.0-70724",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.log;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select * from state.forced_batch;",
+                        "refId": "B",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "Panel Title",
+                "type": "bargauge"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "continuous-GrYlRd"
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 8
+                },
+                "id": 3,
+                "options": {
+                    "displayMode": "basic",
+                    "maxVizHeight": 300,
+                    "minVizHeight": 16,
+                    "minVizWidth": 8,
+                    "namePlacement": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showUnfilled": true,
+                    "sizing": "auto",
+                    "valueMode": "color"
+                },
+                "pluginVersion": "11.1.0-70724",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select max(batch_num) as max_batch from state.batch limit 10;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select max(batch_num) as max_verified_batch from state.verified_batch LIMIT 10;",
+                        "refId": "B",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select max(batch_num) as max_virtual_batch from state.virtual_batch LIMIT 10;",
+                        "refId": "C",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "max batch",
+                "type": "bargauge"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "continuous-GrYlRd"
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 8
+                },
+                "id": 4,
+                "options": {
+                    "displayMode": "basic",
+                    "maxVizHeight": 300,
+                    "minVizHeight": 16,
+                    "minVizWidth": 8,
+                    "namePlacement": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showUnfilled": true,
+                    "sizing": "auto",
+                    "valueMode": "color"
+                },
+                "pluginVersion": "11.1.0-70724",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select max(block_num) as max_block from state.block limit 10;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select max(block_num) as max_l2block from state.l2block limit 10;",
+                        "refId": "B",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select max(block_num) as max_monitored_txs from state.monitored_txs limit 10;",
+                        "refId": "C",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select max(block_num) as max_receipt from state.receipt limit 10;",
+                        "refId": "D",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select max(block_num) as max_verified_batch from state.verified_batch limit 10;",
+                        "refId": "E",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    },
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "hide": false,
+                        "rawQuery": true,
+                        "rawSql": "select max(block_num) as max_virtual_batch from state.virtual_batch limit 10;",
+                        "refId": "F",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "max block",
+                "type": "bargauge"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 16
+                },
+                "id": 6,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "Silicon_Batch",
+                        "instant": false,
+                        "legendFormat": "Silicon Batch",
+                        "range": true,
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "Silicon_Verified_Batch",
+                        "hide": false,
+                        "instant": false,
+                        "legendFormat": "Silicon Verified Batch",
+                        "range": true,
+                        "refId": "B"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "Silicon_Virtual_Batch",
+                        "hide": false,
+                        "instant": false,
+                        "legendFormat": "Silicon Virtual Batch",
+                        "range": true,
+                        "refId": "C"
+                    }
+                ],
+                "title": "Batch value",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "prometheus",
+                    "uid": "1YugLcnVk"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 16
+                },
+                "id": 5,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "increase(Silicon_Batch[15m])",
+                        "instant": false,
+                        "legendFormat": "Silicon Batch",
+                        "range": true,
+                        "refId": "A"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "increase(Silicon_Verified_Batch[1h])",
+                        "hide": false,
+                        "instant": false,
+                        "legendFormat": "Silicon Verified Batch",
+                        "range": true,
+                        "refId": "B"
+                    },
+                    {
+                        "datasource": {
+                            "type": "prometheus",
+                            "uid": "1YugLcnVk"
+                        },
+                        "editorMode": "code",
+                        "expr": "increase(Silicon_Virtual_Batch[1h])",
+                        "hide": false,
+                        "instant": false,
+                        "legendFormat": "Silicon Virtual Batch",
+                        "range": true,
+                        "refId": "C"
+                    }
+                ],
+                "title": "Increment of batch",
+                "type": "timeseries"
+            }
+        ],
+        "schemaVersion": 39,
+        "tags": [],
+        "templating": {
+            "list": []
+        },
+        "time": {
+            "from": "now-3h",
+            "to": "now"
+        },
+        "timeRangeUpdatedDuringEditOrView": false,
+        "timepicker": {},
+        "timezone": "browser",
+        "title": "Silicon all dashboard",
+        "uid": "edky2p4qsqxhcb",
+        "version": 20,
+        "weekStart": ""
+    }
+}

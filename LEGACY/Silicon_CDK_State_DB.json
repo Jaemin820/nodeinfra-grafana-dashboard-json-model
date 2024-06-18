@@ -1,0 +1,2050 @@
+{
+    "meta": {
+        "type": "db",
+        "canSave": true,
+        "canEdit": true,
+        "canAdmin": true,
+        "canStar": true,
+        "canDelete": true,
+        "slug": "silicon-cdk-state-db",
+        "url": "/d/ddjvaoyg2ob28d/silicon-cdk-state-db",
+        "expires": "0001-01-01T00:00:00Z",
+        "created": "2024-04-26T05:19:55Z",
+        "updated": "2024-06-12T05:02:47Z",
+        "updatedBy": "tg9",
+        "createdBy": "tg9",
+        "version": 28,
+        "hasAcl": false,
+        "isFolder": false,
+        "folderId": 143,
+        "folderUid": "NuyAuQ-Vk",
+        "folderTitle": "LEGACY",
+        "folderUrl": "/dashboards/f/NuyAuQ-Vk/legacy",
+        "provisioned": false,
+        "provisionedExternalId": "",
+        "annotationsPermissions": {
+            "dashboard": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            },
+            "organization": {
+                "canAdd": true,
+                "canEdit": true,
+                "canDelete": true
+            }
+        }
+    },
+    "dashboard": {
+        "annotations": {
+            "list": [
+                {
+                    "builtIn": 1,
+                    "datasource": {
+                        "type": "grafana",
+                        "uid": "-- Grafana --"
+                    },
+                    "enable": true,
+                    "hide": true,
+                    "iconColor": "rgba(0, 211, 255, 1)",
+                    "name": "Annotations \u0026 Alerts",
+                    "type": "dashboard"
+                }
+            ]
+        },
+        "editable": true,
+        "fiscalYearStartMonth": 0,
+        "graphTooltip": 0,
+        "id": 378,
+        "links": [],
+        "panels": [
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "thresholds"
+                        },
+                        "custom": {
+                            "align": "auto",
+                            "cellOptions": {
+                                "type": "auto"
+                            },
+                            "inspect": false
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 19,
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "id": 1,
+                "options": {
+                    "cellHeight": "sm",
+                    "footer": {
+                        "countRows": false,
+                        "fields": "",
+                        "reducer": [
+                            "sum"
+                        ],
+                        "show": false
+                    },
+                    "showHeader": true
+                },
+                "pluginVersion": "11.1.0-69950",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "SELECT table_name\nFROM information_schema.tables\nWHERE table_schema = 'state' AND table_type = 'BASE TABLE';\n",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "Table",
+                "type": "table"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 0
+                },
+                "id": 2,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.batch",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "batch",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "grafana-postgresql-datasource",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "orange",
+                                    "value": 70
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 85
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 8
+                },
+                "id": 19,
+                "options": {
+                    "minVizHeight": 75,
+                    "minVizWidth": 75,
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showThresholdLabels": false,
+                    "showThresholdMarkers": false,
+                    "sizing": "auto"
+                },
+                "pluginVersion": "11.1.0-69950",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "grafana-postgresql-datasource",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select max(batch_num) from state.batch;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "batch height",
+                "type": "gauge"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 16
+                },
+                "id": 18,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.batch_data_backup;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "batch_data_backup",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 19
+                },
+                "id": 5,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.forced_batch;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "forced_batch",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 1,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 24
+                },
+                "id": 3,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.block;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "block",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "fillOpacity": 80,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "lineWidth": 1,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "fieldMinMax": false,
+                        "mappings": [],
+                        "max": 20,
+                        "min": 1,
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "none"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 27
+                },
+                "id": 6,
+                "options": {
+                    "barRadius": 0,
+                    "barWidth": 0.97,
+                    "fullHighlight": false,
+                    "groupWidth": 0.7,
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "right",
+                        "showLegend": true
+                    },
+                    "orientation": "auto",
+                    "showValue": "never",
+                    "stacking": "none",
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    },
+                    "xTickLabelRotation": 0,
+                    "xTickLabelSpacing": 0
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.fork_id;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "fork_id",
+                "type": "barchart"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 32
+                },
+                "id": 4,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.exit_root;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "exit_root",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 35
+                },
+                "id": 9,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.monitored_txs;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "monitored_txs",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 40
+                },
+                "id": 7,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.l2block;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "l2block",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "fillOpacity": 80,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "lineWidth": 1,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "short"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 43
+                },
+                "id": 11,
+                "options": {
+                    "barRadius": 0,
+                    "barWidth": 0.97,
+                    "fullHighlight": false,
+                    "groupWidth": 0.7,
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "right",
+                        "showLegend": true
+                    },
+                    "orientation": "auto",
+                    "showValue": "never",
+                    "stacking": "none",
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    },
+                    "xTickLabelRotation": 0,
+                    "xTickLabelSpacing": 0
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.receipt;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "receipt",
+                "type": "barchart"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "continuous-GrYlRd"
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 48
+                },
+                "id": 8,
+                "options": {
+                    "displayMode": "gradient",
+                    "maxVizHeight": 300,
+                    "minVizHeight": 16,
+                    "minVizWidth": 8,
+                    "namePlacement": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [],
+                        "fields": "",
+                        "values": true
+                    },
+                    "showUnfilled": true,
+                    "sizing": "auto",
+                    "valueMode": "color"
+                },
+                "pluginVersion": "11.1.0-69950",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.log;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "log",
+                "type": "bargauge"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "continuous-GrYlRd"
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 51
+                },
+                "id": 13,
+                "options": {
+                    "displayMode": "basic",
+                    "maxVizHeight": 300,
+                    "minVizHeight": 16,
+                    "minVizWidth": 8,
+                    "namePlacement": "auto",
+                    "orientation": "horizontal",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showUnfilled": true,
+                    "sizing": "auto",
+                    "valueMode": "color"
+                },
+                "pluginVersion": "11.1.0-69950",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.sync_info;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "sync_info",
+                "type": "bargauge"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 56
+                },
+                "id": 10,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.proof;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "proof",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 59
+                },
+                "id": 15,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.trusted_reorg;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "trusted_reorg",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "percentage",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 64
+                },
+                "id": 12,
+                "options": {
+                    "minVizHeight": 75,
+                    "minVizWidth": 75,
+                    "orientation": "auto",
+                    "reduceOptions": {
+                        "calcs": [
+                            "lastNotNull"
+                        ],
+                        "fields": "",
+                        "values": false
+                    },
+                    "showThresholdLabels": false,
+                    "showThresholdMarkers": false,
+                    "sizing": "auto"
+                },
+                "pluginVersion": "11.1.0-69950",
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.sequences;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "sequences",
+                "type": "gauge"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "barAlignment": 0,
+                            "drawStyle": "line",
+                            "fillOpacity": 0,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "insertNulls": false,
+                            "lineInterpolation": "linear",
+                            "lineWidth": 1,
+                            "pointSize": 5,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "showPoints": "auto",
+                            "spanNulls": false,
+                            "stacking": {
+                                "group": "A",
+                                "mode": "none"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        }
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 67
+                },
+                "id": 17,
+                "options": {
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "bottom",
+                        "showLegend": true
+                    },
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    }
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.virtual_batch;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "virtual_batch",
+                "type": "timeseries"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "fillOpacity": 80,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "lineWidth": 1,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "short"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 12,
+                    "y": 72
+                },
+                "id": 14,
+                "options": {
+                    "barRadius": 0,
+                    "barWidth": 0.97,
+                    "fullHighlight": false,
+                    "groupWidth": 0.7,
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "right",
+                        "showLegend": true
+                    },
+                    "orientation": "auto",
+                    "showValue": "never",
+                    "stacking": "none",
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    },
+                    "xTickLabelRotation": 0,
+                    "xTickLabelSpacing": 0
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.transaction;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "transaction",
+                "type": "barchart"
+            },
+            {
+                "datasource": {
+                    "type": "Silicon CDK State DB",
+                    "uid": "ddkgclug4tkaoa"
+                },
+                "fieldConfig": {
+                    "defaults": {
+                        "color": {
+                            "mode": "palette-classic"
+                        },
+                        "custom": {
+                            "axisBorderShow": false,
+                            "axisCenteredZero": false,
+                            "axisColorMode": "text",
+                            "axisLabel": "",
+                            "axisPlacement": "auto",
+                            "fillOpacity": 80,
+                            "gradientMode": "none",
+                            "hideFrom": {
+                                "legend": false,
+                                "tooltip": false,
+                                "viz": false
+                            },
+                            "lineWidth": 1,
+                            "scaleDistribution": {
+                                "type": "linear"
+                            },
+                            "thresholdsStyle": {
+                                "mode": "off"
+                            }
+                        },
+                        "mappings": [],
+                        "thresholds": {
+                            "mode": "absolute",
+                            "steps": [
+                                {
+                                    "color": "green",
+                                    "value": null
+                                },
+                                {
+                                    "color": "red",
+                                    "value": 80
+                                }
+                            ]
+                        },
+                        "unit": "short"
+                    },
+                    "overrides": []
+                },
+                "gridPos": {
+                    "h": 8,
+                    "w": 12,
+                    "x": 0,
+                    "y": 75
+                },
+                "id": 16,
+                "options": {
+                    "barRadius": 0,
+                    "barWidth": 0.97,
+                    "fullHighlight": false,
+                    "groupWidth": 0.7,
+                    "legend": {
+                        "calcs": [],
+                        "displayMode": "list",
+                        "placement": "right",
+                        "showLegend": true
+                    },
+                    "orientation": "auto",
+                    "showValue": "never",
+                    "stacking": "none",
+                    "tooltip": {
+                        "mode": "single",
+                        "sort": "none"
+                    },
+                    "xTickLabelRotation": 0,
+                    "xTickLabelSpacing": 0
+                },
+                "targets": [
+                    {
+                        "datasource": {
+                            "type": "Silicon CDK State DB",
+                            "uid": "ddkgclug4tkaoa"
+                        },
+                        "editorMode": "code",
+                        "format": "table",
+                        "rawQuery": true,
+                        "rawSql": "select * from state.verified_batch;",
+                        "refId": "A",
+                        "sql": {
+                            "columns": [
+                                {
+                                    "parameters": [],
+                                    "type": "function"
+                                }
+                            ],
+                            "groupBy": [
+                                {
+                                    "property": {
+                                        "type": "string"
+                                    },
+                                    "type": "groupBy"
+                                }
+                            ],
+                            "limit": 50
+                        }
+                    }
+                ],
+                "title": "verified_batch",
+                "type": "barchart"
+            }
+        ],
+        "refresh": "",
+        "schemaVersion": 39,
+        "tags": [],
+        "templating": {
+            "list": []
+        },
+        "time": {
+            "from": "now-1h",
+            "to": "now"
+        },
+        "timeRangeUpdatedDuringEditOrView": false,
+        "timepicker": {},
+        "timezone": "browser",
+        "title": "Silicon CDK State DB",
+        "uid": "ddjvaoyg2ob28d",
+        "version": 28,
+        "weekStart": ""
+    }
+}
